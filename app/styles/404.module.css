@@ -1,0 +1,170 @@
+
+.header_section {
+    display: block;
+    position: relative;
+    padding: 50px 115px;
+}
+.header_section img {
+    width: 160px;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    height: 100vh;
+}
+
+.heroSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.headingText {
+    font-size: var(--fs-100);
+    font-family: ideamet;
+    margin: 83px 0;
+    font-weight: 800;
+}
+
+.heroDescription {
+    font-size: var(--fs-24) !important;
+    font-weight: 500;
+    font-family: ideamet;
+    color: grey;
+    width: 80%;
+    margin: 24px 0;
+}
+
+@media screen and (max-width:960px) {
+    .header_section {
+        padding: 30px 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .heroSection {
+        gap: 30px;
+    }
+
+    .header_section:first-child {
+        width: 100% !important;
+        justify-content: center !important;
+        align-items: center;
+    }
+}
+
+.main a {
+    text-decoration: none;
+}
+
+.caseNavHolder {
+    display: flex;
+    text-decoration: none;
+    width: 100%;
+    align-items: center;
+    font-family: ideamet;
+    gap: 15px;
+    font-size: var(--fs-20);
+    font-weight: 500;
+    justify-content: center;
+}
+
+.caseNavBackArrow {
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 8px;
+    color: #101820;
+    aspect-ratio: 1/1;
+    height: 58px;
+    font-family: ideamet;
+    list-style: none;
+    display: flex;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    background: url("/assets/images/error/casestudy-arrowback.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.caseNavLinks {
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 8px;
+    color: #101820;
+    padding: 0;
+    font-family: ideamet;
+    aspect-ratio: 223/58;
+    overflow: hidden;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    justify-content: center;
+    height: 58px;
+    width: 223px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    background: url('/assets/images/error/casestudy-navbar-blur.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 16px 0;
+}
+
+.caseNavItem {
+    width: 99%;
+    display: flex;
+}
+
+.caseNavHolder a {
+    text-decoration: none;
+    color: #101820;
+}
+
+.cTextMarquee {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    contain: layout paint;
+}
+
+.cTextMarquee__text {
+    font-style: normal;
+    font-family: ideamet;
+    font-weight: 500;
+    will-change: transform;
+    flex-shrink: 0;
+    white-space: nowrap;
+    display: flex;
+}
+
+@media (max-width: 1023px) {
+    .cTextMarquee__text {
+        line-height: 55px;
+    }
+}
+
+@keyframes moveText {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}

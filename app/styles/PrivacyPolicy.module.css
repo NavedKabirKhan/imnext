@@ -1,0 +1,55 @@
+.privacy_policy {
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    font-family: ideamet;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.privacy_policy_container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 960px) {
+    .privacy_policy {
+        padding-top: 50px;
+    }
+
+    .privacy_policy_container {
+        width: 100%;
+        padding: 10%;
+    }
+}
+
+.pp_content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pp_points {
+    display: flex;
+    flex-direction: column;
+}
+
+.pp_heading {
+    font-size: var(--fs-64);
+    padding-bottom: 5%;
+}
+
+.pp_subhead {
+    font-size: var(--fs-24);
+}
+
+.pp_description {
+    font-size: var(--fs-16);
+}
+
+.pp_description li {
+    list-style: none;
+}

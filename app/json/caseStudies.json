@@ -1,0 +1,84 @@
+[
+    {
+      "title": "Boat",
+      "client": "Boat",
+      "category": "Strategy | Tech",
+      "link": "/work/boat",
+      "thumbnail": "/assets/images/work/boat/boat-thumbnail.webp",
+      "video": "/assets/images/work/boat/boat-thumbnail.mp4",
+      "layout": "landscape"
+    },
+    {
+      "title": "Royal Legacy",
+      "client": "Royal Legacy",
+      "category": "Branding | Food",
+      "link": "/work/royal-legacy",
+      "thumbnail": "/assets/images/work/royal-legacy/royal-legacy-thumbnail.webp",
+      "video": "/assets/images/work/royal-legacy/royal-legacy-thumbnail.mp4",
+      "layout": "square"
+    },
+    {
+      "title": "Decathlon",
+      "client": "Decathlon",
+      "category": "Strategy | Sports",
+      "link": "/work/decathlon",
+      "thumbnail": "/assets/images/work/decathlon/decathlon-thumbnail.webp",
+      "video": "/assets/images/work/decathlon/decathlon-thumbnail.mp4",
+      "layout": "square"
+    },
+    {
+      "title": "ADND",
+      "client": "ADND",
+      "category": "Web Design | Architecture",
+      "link": "/work/adnd",
+      "thumbnail": "/assets/images/work/adnd/adnd-thumbnail.webp",
+      "video": "/assets/images/work/adnd/adnd-thumbnail.mp4",
+      "layout": "square"
+    },
+    {
+      "title": "Prestige University",
+      "client": "Prestige University",
+      "category": "Branding | Education",
+      "link": "/work/prestige-university",
+      "thumbnail": "/assets/images/work/prestige-university-branding/pu-thumbnail.webp",
+      "video": "/assets/images/work/prestige-university-branding/pu-thumbnail.mp4",
+      "layout": "square"
+    },
+    {
+      "title": "Motivata",
+      "client": "Motivata",
+      "category": "Branding | Hospitality",
+      "link": "/work/motivata",
+      "thumbnail": "/assets/images/work/motivata/motivata-thumbnail.webp",
+      "video": "/assets/images/work/motivata/motivata-thumbnail.mp4",
+      "layout": "landscape"
+    },
+    {
+      "title": "Neelam Foresteria",
+      "client": "Neelam Foresteria",
+      "category": "Branding | Hospitality",
+      "link": "/work/neelam-foresteria",
+      "thumbnail": "/assets/images/work/neelam-foresteria/neelam-thumbnail.webp",
+      "video": "/assets/images/work/neelam-foresteria/neelam-thumbnail.mp4",
+      "layout": "square"
+    },
+    {
+      "title": "TILX",
+      "client": "TILX",
+      "category": "Strategy | Lifestyle",
+      "link": "/work/tilx",
+      "thumbnail": "/assets/images/work/tilx/tilx-thumbnail.webp",
+      "video": "/assets/images/work/tilx/tilx-thumbnail.mp4",
+      "layout": "square"
+    },
+    {
+      "title": "Taskey",
+      "client": "Taskey",
+      "category": "App Design & Development | Tech",
+      "link": "/work/taskey",
+      "thumbnail": "/assets/images/work/taskey/taskey-work-thumbnail.webp",
+      "video": "/assets/images/work/taskey/taskey-work-thumbnail.mp4",
+      "layout": "square"
+    }
+  ]
+  

@@ -1,0 +1,68 @@
+{
+    "services": [
+        {
+            "title": "Branding",
+            "icon": "/assets/images/landing/services/branding-icon.svg",
+            "alt": "Branding - Brand Identity Icon",
+            "description": "As they say, Fine dress helps to impress. We consider each and every element in the formation of the image of the brand that will appeal to the customers.",
+            "items": [
+                "Visual Identity",
+                "Verbal Identity",
+                "Typography",
+                "Motion Identity",
+                "Brand Guidelines",
+                "Packaging Design"
+            ]
+        },
+        {
+            "title": "Strategy",
+            "icon": "/assets/images/landing/services/strategy-icon.svg",
+            "alt": "Strategy - Brand Positioning and GTM Plan Icon",
+            "description": "We specialize in qualitative insight research to understand you and your business.",
+            "items": [
+                "Brand Positioning",
+                "Brand Architecture",
+                "Creative Campaigns",
+                "GTM Plans"
+            ]
+        },
+        {
+            "title": "UX/UI Design",
+            "icon": "/assets/images/landing/services/ux-icon.svg",
+            "alt": "UX/UI - UX UI Design and Development Icon",
+            "description": "This assures your users don't forget to come back after using your website once. Minimal, Innovative and precise.",
+            "items": [
+                "UX Research/ Analysis",
+                "UX Design",
+                "Website Design/ Development",
+                "App Design/ Development"
+            ]
+        },
+        {
+            "title": "Graphic Design",
+            "icon": "/assets/images/landing/services/graphic-design-icon.svg",
+            "alt": "Graphic Design Icon",
+            "description": "Design is a way of changing life and influencing the future. Our truly unique and engaging art in the digital world will generate a memorable brand experience.",
+            "items": [
+                "Print Design",
+                "Social Media Graphics",
+                "Exhibition Design",
+                "Advertising & Marketing Design",
+                "Merchandise & Apparel Design",
+                "Brand Collateral"
+            ]
+        },
+        {
+            "title": "Motion Design",
+            "icon": "/assets/images/landing/services/motion-design-icon.svg",
+            "alt": "Motion Design - Animation Icon",
+            "description": "With this, you can explain your strength and superiority to the audience in a simple and understandable language which is through a video.",
+            "items": [
+                "Promo Videos",
+                "Motion Graphics",
+                "Character Animation",
+                "Logo Animation"
+            ]
+        }
+    ]
+}
