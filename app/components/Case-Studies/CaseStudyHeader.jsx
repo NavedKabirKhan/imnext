@@ -3,12 +3,13 @@ import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import TransitionLink from "@/app/components/TransitionLink"
- 
+import casestudyStyles from '@/app/styles/Case-Study.module.css';
+
 import gsap from 'gsap';
 const imagePaths = {
-    
-    casestudyNavBarBlur: '/assets/images/header/casestudy-navbar-blur.svg',
-    casestudyArrowBack: '/assets/images/header/casestudy-arrowback.svg',
+
+  casestudyNavBarBlur: '/assets/images/header/casestudy-navbar-blur.svg',
+  casestudyArrowBack: '/assets/images/header/casestudy-arrowback.svg',
 };
 function CaseStudyHeader() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -34,7 +35,7 @@ function CaseStudyHeader() {
 
   useEffect(() => {
     const marqueeElements = gsap.utils.toArray(".anim-marqueeText");
-  
+
     gsap.to(marqueeElements, {
       xPercent: -100,
       repeat: -1,
@@ -43,7 +44,7 @@ function CaseStudyHeader() {
     });
   }, []);
 
-  
+
 
   // GSAP hover effects
   useEffect(() => {
@@ -139,45 +140,46 @@ function CaseStudyHeader() {
       </div>
 
       <div className="case_nav_holder" data-header="noscroll" data-view="0">
-  <TransitionLink href="/work" passHref>
-      <ul className="case_nav_back_arrow" style={{ backgroundImage: `url(${imagePaths.casestudyArrowBack})` }} >
-        <span className="case_nav_item">
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 15 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12.0977 2.50195L2.59766 12.002L12.0977 21.502"
-              stroke="black"
-              strokeWidth="3"
-              strokeLinecap="square"
-            />
-          </svg>
-        </span>
-      </ul>
-  </TransitionLink>
-  <ul className="case_navlinks" style={{ backgroundImage: `url(${imagePaths.casestudyNavBarBlur})` }}>
-    <span className="case_nav_item_name">
-      <div className="c_textMarquee">
-        <div className="c_textMarquee__text anim-marqueeText">
-          {/* {pageName}&nbsp;&#9642;&nbsp; */}
-        </div>
-        <div className="c-textMarquee__text anim-marqueeText">
-          {/* {pageName}&nbsp;&#9642;&nbsp; */}
-        </div>
-        <div className="c_textMarquee__text anim-marqueeText">
-          {/* {pageName}&nbsp;&#9642;&nbsp; */}
-        </div>
-        <div className="c_textMarquee__text anim-marqueeText">
-          {/* {pageName}&nbsp;&#9642;&nbsp; */}
-        </div>
+        <TransitionLink href="/work" passHref>
+          <ul className="case_nav_back_arrow" style={{ backgroundImage: `url(${imagePaths.casestudyArrowBack})` }} >
+            <span className="case_nav_item">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.0977 2.50195L2.59766 12.002L12.0977 21.502"
+                  stroke="black"
+                  strokeWidth="3"
+                  strokeLinecap="square"
+                />
+              </svg>
+            </span>
+          </ul>
+        </TransitionLink>
+        <ul className={casestudyStyles.caseNavLinks}>
+
+          <span className={casestudyStyles.caseNavItem}>
+            <div className={casestudyStyles.cTextMarquee}>
+              <div className={`${casestudyStyles.cTextMarquee__text} anim-marqueeText`}>
+                {/* {pageName}&nbsp;&#9642;&nbsp; */}
+              </div>
+              <div className={`${casestudyStyles.cTextMarquee__text} anim-marqueeText`}>
+                {/* {pageName}&nbsp;&#9642;&nbsp; */}
+              </div>
+              <div className={`${casestudyStyles.cTextMarquee__text} anim-marqueeText`}>
+                {/* {pageName}&nbsp;&#9642;&nbsp; */}
+              </div>
+              <div className={`${casestudyStyles.cTextMarquee__text} anim-marqueeText`}>
+                {/* {pageName}&nbsp;&#9642;&nbsp; */}
+              </div>
+            </div>
+          </span>
+        </ul>
       </div>
-    </span>
-  </ul>
-</div>
 
 
       <div className={`sidebar ${isSidebarOpen ? 'sidebar-open' : ''}`}>
