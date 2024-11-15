@@ -2,7 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Initial state */
+.animated-media {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  }
+  
+  /* Final state */
+  .animated-media.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
+  
 /* Global CSS */
 .no-scroll {
     overflow: hidden;
