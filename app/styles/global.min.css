@@ -56,7 +56,35 @@ html.lenis body {
 .lenis.lenis-smooth iframe {
     pointer-events: none;
 }
-
+.transitionElement {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    padding: 20px;
+}
+.transitionPageName{
+    font-size: var(--fs-64);
+    color: #fff;
+    position: absolute;
+right: 5%;
+    bottom: 50px;
+}
+.transitionOverlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    z-index: 50;
+}
 
 .word {
     transform: translateY(100%);
@@ -956,7 +984,6 @@ textarea::-webkit-input-placeholder {
 
 
 .case_nav_holder {
-    z-index: 900;
     margin: 30px auto;
     position: fixed;
     display: flex;
@@ -968,7 +995,7 @@ textarea::-webkit-input-placeholder {
     font-weight: 500;
     gap: 15px;
     justify-content: center;
-    z-index: 11018200;
+    z-index: 1001;
     left: 25%
 }
 

@@ -17,7 +17,6 @@ import contactWorkVideo from "@/app/assets/contact/contact-work-images.mp4";
 import subscribeImage from "@/app/assets/subscribe-form/subscribe-us-01.png";
 import SlideUpText from "@/app/components/SlideUpText";
 import ViewporTextAnim from "@/app/components/ViewporTextAnim";
-
 const Contact = () => {
 
   useEffect(() => {

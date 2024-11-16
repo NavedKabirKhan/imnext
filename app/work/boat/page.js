@@ -1,4 +1,5 @@
 "use client";
+import { useSharedRef } from '@/app/components/RefContext';
 import Head from 'next/head';
 import useGsapScroll from '@/app/components/hooks/useGsapScroll';
 import ProjectOverview from '@/app/components/Case-Studies/ProjectOverview';
@@ -62,15 +63,15 @@ const BOAT = () => {
       >
         <div className={casestudyStyles.Case_Stydy_hero_text}>
           <h2>
-          <SlideUpText text="Boat offers an incredible range of wireless earphones, earbuds, headphones, smartwatches, and home audio.
+            <SlideUpText text="Boat offers an incredible range of wireless earphones, earbuds, headphones, smartwatches, and home audio.
             Whether for workouts or adventures, Boat will keep you sailing!" />
           </h2>
           <h1>
-          <SlideUpText text="boAt" delay={1} />
+            <SlideUpText text="boAt" delay={1} />
           </h1>
         </div>
         <div className={casestudyStyles.challange_move}>
-          <img src={imagePaths.landingCircle}   alt="" id="case_study_circular_text" />
+          <img src={imagePaths.landingCircle} alt="" id="case_study_circular_text" />
         </div>
       </div>
 
@@ -147,8 +148,8 @@ const BOAT = () => {
             <img
               src={imagePaths.stackOfWatches}
               alt="Watch digital features and different watch straps marketing design"
-              
-              
+
+
               layout="responsive"
               className={`${casestudyStyles.image_content} lazy animTxt`}
             />
@@ -157,8 +158,8 @@ const BOAT = () => {
             <img
               src={imagePaths.manRunning100PlusSportsMode}
               alt="Man running marketing design"
-              
-              
+
+
               layout="responsive"
               className={`${casestudyStyles.image_content} lazy animTxt`}
             />
@@ -168,8 +169,8 @@ const BOAT = () => {
             <img
               src={imagePaths.billboardOnBeigeBuilding}
               alt="boAt watch feature wall mural board marketing design"
-              
-              
+
+
               layout="responsive"
               className={`${casestudyStyles.image_content} lazy animTxt`}
             />
@@ -201,8 +202,8 @@ const BOAT = () => {
             <img
               src={imagePaths.brownBillboardOnBuildingTopWithBlueSky}
               alt="Experience the world boAt campaign on a billboard"
-              
-              
+
+
               layout="responsive"
               className={`${casestudyStyles.image_content} lazy animTxt`}
             />
@@ -212,8 +213,8 @@ const BOAT = () => {
             <img
               src={imagePaths.billboardOnBoothOnRoadWithNatureInBack}
               alt="boAt watch features a bus stand kiosk"
-              
-              
+
+
               layout="responsive"
               className={`${casestudyStyles.image_content} lazy animTxt`}
             />
@@ -223,8 +224,8 @@ const BOAT = () => {
             <img
               src={imagePaths.billboardOnSilverWall}
               alt="boAt watch features a metro board"
-              
-              
+
+
               layout="responsive"
               className={`${casestudyStyles.image_content} lazy animTxt`}
             />
@@ -243,8 +244,8 @@ const BOAT = () => {
             <img
               src={imagePaths.imageOfThreeWatchesWithWhiteBackground}
               alt="boAt watch strap material showcase"
-              
-              
+
+
               layout="responsive"
               className={`${casestudyStyles.image_content} lazy animTxt`}
             />
@@ -254,8 +255,8 @@ const BOAT = () => {
             <img
               src={imagePaths.posterOnTruck}
               alt="Lunar Eclipse boat watch truck marketing"
-              
-              
+
+
               layout="responsive"
               className={`${casestudyStyles.image_content} lazy animTxt`}
             />
@@ -265,8 +266,8 @@ const BOAT = () => {
             <img
               src={imagePaths.twoBillboardsOnWallWithBlueChairs}
               alt="watch feature marketing boards at the movie theatre"
-              
-              
+
+
               layout="responsive"
               className={`${casestudyStyles.image_content} lazy animTxt`}
             />
@@ -312,8 +313,8 @@ const BOAT = () => {
             <img
               src={imagePaths.billboardOnWallWithCheetahOnWatch}
               alt="The key visual design of the boAt watch on the billboard"
-              
-              
+
+
               layout="responsive"
               className={`${casestudyStyles.image_content} animTxt`}
             />
@@ -357,8 +358,8 @@ const BOAT = () => {
             <img
               src={imagePaths.collageOfWatches}
               alt="weather, stopwatch, alarm, and countdown feature of the watch for meta ads"
-              
-              
+
+
               layout="responsive"
               className={`${casestudyStyles.image_content} animTxt`}
             />

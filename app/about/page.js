@@ -96,7 +96,7 @@ function About() {
         </div>
 
         <div className={aboutStyles.zoomImageAndContent}>
-          {/* <ZoomImage /> */}
+          <ZoomImage />
 
           <div className={aboutStyles.globalStrategicContainer}>
             <h2 className="initialTransition">

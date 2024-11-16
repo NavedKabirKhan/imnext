@@ -1,5 +1,5 @@
 // import { Accordion, AccordionItem } from "@nextui-org/react";
-import {Accordion, AccordionItem} from "@nextui-org/accordion";
+import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import accordianStyles from "./Accordian.module.css";
 import Image from "next/legacy/image";
 // import crossIcon from "./crossIcon"
@@ -7,7 +7,7 @@ import crossIcon from "./cross-icon.svg"; // Ensure this path is correct
 
 
 const Accordiannew = ({ openFormModule }) => {
-    
+
     const accordionData = [
         {
             title: "Sales and Marketing",
@@ -196,7 +196,7 @@ const Accordiannew = ({ openFormModule }) => {
             ),
         },
     ];
-   
+
     return (
         //     < Accordion >
         //     <AccordionItem key="1" aria-label="Accordion 1" title={
@@ -226,10 +226,10 @@ const Accordiannew = ({ openFormModule }) => {
         //         {defaultContent}
         //     </AccordionItem>
         // </Accordion >
-        (<Accordion className={accordianStyles.accordion_container}>
+        (<Accordion className={accordianStyles.accordion_container} variant="light">
             {accordionData.map((item, index) => (
                 <AccordionItem
-                className={accordianStyles.accordion_item}
+                    className={accordianStyles.accordion_item}
                     key={index}
 
                     aria-label={`Accordion ${index}`}
@@ -260,6 +260,42 @@ const Accordiannew = ({ openFormModule }) => {
                 </AccordionItem>
             ))}
         </Accordion>)
+
+
+        // (<Accordion className={accordianStyles.accordion_container}>
+        //     {accordionData.map((item, index) => (
+        //         <AccordionItem
+        //             className={accordianStyles.accordion_item}
+        //             key={index}
+
+        //             aria-label={`Accordion ${index}`}
+        //             title={
+        //                 <div className={accordianStyles.header}>
+        //                     <h3 className={accordianStyles.setname}>{item.title}</h3>
+        //                     <h3 className={accordianStyles.settype}>{item.type}</h3>
+        //                     <h3 className={accordianStyles.setmode}>{item.mode}</h3>
+        //                     {/* <Image
+        //                         src={crossIcon}
+        //                         alt="Cross Icon"
+
+        //                         width={30}
+        //                         height={30}
+        //                     /> */}
+        //                 </div>
+        //             }
+        //             indicator={
+        //                 <Image
+        //                     src={crossIcon}
+        //                     alt="Cross Icon"
+        //                     className={accordianStyles.cross_icon}
+        //                     width={30}
+        //                     height={30}
+        //                 />}
+        //         >
+        //             <div className={accordianStyles.set_content}>{item.content}</div>
+        //         </AccordionItem>
+        //     ))}
+        // </Accordion>)
     );
 }
 

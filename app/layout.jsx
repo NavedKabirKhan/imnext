@@ -53,11 +53,7 @@ export default function RootLayout({ children }) {
       <body>
 
         {/* Transition Overlay */}
-        <div
-          id="transition-overlay"
-          className={`fixed top-0 left-0 w-full h-full bg-black z-50 ${
-            isInitialLoad ? "" : "hidden"
-          }`}
+        <div id="transition-overlay" className={`transitionOverlay ${isInitialLoad ? "" : "hidden"}`}
         ></div>
         {isCaseStudyPage ? <CaseStudyHeader /> : <Header />}
         <main>{children}</main>

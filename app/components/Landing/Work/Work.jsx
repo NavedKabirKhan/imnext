@@ -4,6 +4,7 @@ import ViewporTextAnim from "@/app/components/ViewporTextAnim";
 import SlideUpText from "@/app/components/SlideUpText";
 import Link from "next/link";
 import AnimateImage from "@/app/components/AnimateImage";
+import TransitionLink from "@/app/components/TransitionLink";
 
 
 import NeelamForesteriaThumb from "@/app/assets/work-thumbnails/neelam-landing-thumb.webp";
@@ -14,13 +15,12 @@ import DecathlonThumb from "@/app/assets/work-thumbnails/decathlon-landing-thumb
 import DecathlonVideo from "@/app/assets/work-thumbnails/decathlon-landing-work-thumbnail.mp4";
 import RoyalLegacyThumb from "@/app/assets/work-thumbnails/royal-legacy-landing-thumb.webp";
 import RoyalLegacyVideo from "@/app/assets/work-thumbnails/royal-legacy-landing-thumb.mp4";
-import TransitionLink from "@/app/components/TransitionLink";
 
 // Reusable WorkItem component
 const WorkItem = ({ link, videoSrc, thumb, alt, title, heading, category, index, isDesktop }) => (
     <div className={`${landingStyles[`w_g_container_${index + 1}`]} ${isDesktop ? landingStyles.thumbnail_holder : ""} textAnim`}>
         <AnimateImage className="media-container" data-links={heading}>
-            <a href={link} className={landingStyles.w_g_t_link}>
+            <TransitionLink href={link} className={landingStyles.w_g_t_link}>
                 <figure>
                     <video
                         autoPlay
@@ -36,7 +36,7 @@ const WorkItem = ({ link, videoSrc, thumb, alt, title, heading, category, index,
                         Your browser does not support the video tag.
                     </video>
                 </figure>
-            </a>
+            </TransitionLink>
         </AnimateImage>
         <a className={landingStyles.w_g_c_container} href={link}>
             <h4 className={landingStyles.w_g_c_heading}>{heading}</h4>
@@ -139,9 +139,9 @@ function Work() {
             </div>
 
             <div data-links="Work">
-                <Link className={`${landingStyles.w_s_o_m_w_mobile} ${landingStyles.site_container_padding}`} href="/work">
+                <TransitionLink className={`${landingStyles.w_s_o_m_w_mobile} ${landingStyles.site_container_padding}`} href="/work">
                     See More Of Our Work →
-                </Link>
+                </TransitionLink>
             </div>
         </section>
     );

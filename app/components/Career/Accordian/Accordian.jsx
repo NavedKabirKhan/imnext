@@ -208,8 +208,7 @@ const Accordion = ({ openFormModule }) => {
         <div key={index} className={accordianStyles.accordion_item}>
           <div
             className={accordianStyles.header}
-            onClick={() => handleAccordionClick(index)}
-          >
+            onClick={() => handleAccordionClick(index)}>
             <h3 className={accordianStyles.setname}>{item.title}</h3>
             <h3 className={accordianStyles.settype}>{item.type}</h3>
             <h3 className={accordianStyles.setmode}>{item.mode}</h3>

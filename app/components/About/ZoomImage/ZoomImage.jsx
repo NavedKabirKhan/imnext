@@ -12,38 +12,45 @@ function ZoomImage() {
   const verticalMoveColumn2 = useRef();
 
   useLayoutEffect(() => {
-    const screenWidth = window.innerWidth;
+    // Create a GSAP matchMedia instance
+    const mm = gsap.matchMedia();
 
-    // Only apply GSAP animations for larger screens
-    if (screenWidth > 640) {
-      const ctx = gsap.context(() => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: aboutUsGallerySectionRef.current,
-            start: "top top",
-            end: `+=${2 * window.innerHeight}`,
-            pin: true,
-            pinSpacing: true,
-            scrub: 1,
-          },
-        });
-
-        tl.to(aboutUsGallerySectionRef.current, {
-          scale: 1.8,
-        })
-          .to(
-            gridVideo.current,
-            {
-              scale: 1,
-            },
-            0
-          )
-          .to(verticalMoveColumn1.current, { y: 400 }, 0)
-          .to(verticalMoveColumn2.current, { y: 400 }, 0);
+    // Define animations for different breakpoints
+    mm.add("(min-width: 960px)", () => {
+      // This will only run if the screen width is 960px or more
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: aboutUsGallerySectionRef.current,
+          start: "top top",
+          end: `+=${2 * window.innerHeight}`,
+          pin: true,
+          pinSpacing: true,
+          scrub: 1,
+        },
       });
 
-      return () => ctx.revert(); // Clean up GSAP animations on unmount
-    }
+      tl.to(aboutUsGallerySectionRef.current, {
+        scale: 1.8,
+      })
+        .to(
+          gridVideo.current,
+          {
+            scale: 1,
+          },
+          0
+        )
+        .to(verticalMoveColumn1.current, { y: 400 }, 0)
+        .to(verticalMoveColumn2.current, { y: 400 }, 0);
+
+      // Cleanup function for this breakpoint
+      return () => {
+        tl.kill(); // Kill the timeline when the matchMedia condition is no longer met
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Kill all ScrollTrigger instances
+      };
+    });
+
+    // Clean up all GSAP instances on component unmount
+    return () => mm.revert();
   }, []);
 
   return (
@@ -52,7 +59,7 @@ function ZoomImage() {
         <section
           className={aboutStyles.aboutUsGallerySection}
           ref={aboutUsGallerySectionRef}
-          style={{ overflow: "hidden", position: "relative" }} // Ensure the overflow is hidden
+          style={{ overflow: "hidden", position: "relative" }}
         >
           <div className={aboutStyles.aboutUsGridSection}>
             <div className={aboutStyles.aboutUsGalleryContainer}>
@@ -61,8 +68,7 @@ function ZoomImage() {
                   <div
                     className={`${aboutStyles.aboutUsColumn} ${aboutStyles.verticalMoveColumn}`}
                     ref={verticalMoveColumn1}
-                    style={{ overflow: "hidden" }} // Apply overflow hidden here
-
+                    style={{ overflow: "hidden" }}
                   >
                     <img
                       src="/assets/images/about/zoomImage/video-grid/image-grid-2.webp"
@@ -87,8 +93,7 @@ function ZoomImage() {
                       className={aboutStyles.animVideoMedia}
                       width="1600"
                       height="1080"
-                      style={{ overflow: "hidden" }} // Apply overflow hidden
-
+                      style={{ overflow: "hidden" }}
                     >
                       <video
                         playsInline

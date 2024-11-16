@@ -35,6 +35,8 @@ function CaseStudyHeader() {
 
   useEffect(() => {
     const marqueeElements = gsap.utils.toArray(".anim-marqueeText");
+    // console.log(refContext.current);
+
 
     gsap.to(marqueeElements, {
       xPercent: -100,
@@ -169,12 +171,15 @@ function CaseStudyHeader() {
               </div>
               <div className={`${casestudyStyles.cTextMarquee__text} anim-marqueeText`}>
                 {/* {pageName}&nbsp;&#9642;&nbsp; */}
+
               </div>
               <div className={`${casestudyStyles.cTextMarquee__text} anim-marqueeText`}>
                 {/* {pageName}&nbsp;&#9642;&nbsp; */}
+
               </div>
               <div className={`${casestudyStyles.cTextMarquee__text} anim-marqueeText`}>
                 {/* {pageName}&nbsp;&#9642;&nbsp; */}
+
               </div>
             </div>
           </span>
