@@ -139,9 +139,9 @@ function Work() {
             </div>
 
             <div data-links="Work">
-                <TransitionLink className={`${landingStyles.w_s_o_m_w_mobile} ${landingStyles.site_container_padding}`} href="/work">
+                <Link className={`${landingStyles.w_s_o_m_w_mobile} ${landingStyles.site_container_padding}`} href="/work">
                     See More Of Our Work →
-                </TransitionLink>
+                </Link>
             </div>
         </section>
     );
