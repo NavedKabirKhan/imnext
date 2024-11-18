@@ -7,6 +7,7 @@ import AnimateImage from "@/app/components/AnimateImage";
 import TransitionLink from "@/app/components/TransitionLink";
 
 
+
 import NeelamForesteriaThumb from "@/app/assets/work-thumbnails/neelam-landing-thumb.webp";
 import NeelamForesteriaVideo from "@/app/assets/work-thumbnails/neelam-landing-work-thumbnail.mp4";
 import BoatThumb from "@/app/assets/work-thumbnails/boat-landing-thumb.webp";
@@ -27,6 +28,7 @@ const WorkItem = ({ link, videoSrc, thumb, alt, title, heading, category, index,
                         muted
                         loop
                         playsInline
+                        preload="auto" // Add this attribute
                         className={`${landingStyles.thumbnail_image} animTxt`}
                         poster={thumb}
                         alt={alt}

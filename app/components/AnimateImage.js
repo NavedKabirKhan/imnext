@@ -102,7 +102,7 @@ const useMediaAnimation = (containerRef) => {
         });
       },
       {
-        threshold: 0.1, // Trigger when 10% of the element is visible
+        threshold: 0.0, // Trigger when 10% of the element is visible
       }
     );
 
