@@ -228,6 +228,8 @@
 
     .doubleImageDetailHolder {
         gap: 56px;
+        display: flex;
+
         
     }
 }

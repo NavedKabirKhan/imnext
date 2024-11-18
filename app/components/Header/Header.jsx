@@ -124,7 +124,17 @@ function Header() {
             { href: '/about', label: 'About' },
           ].map((link, index) => (
             <li key={link.href} className="nav-item" data-links={link.label}>
-              <TransitionLink href={link.href} scroll={true} className={router.pathname === link.href ? 'active' : ''}>
+              <TransitionLink
+          href={link.href}
+          scroll={true}
+          className={router.pathname === link.href ? 'active' : ''}
+          onClick={(e) => {
+            if (router.pathname === link.href) {
+              console.log(`Prevented navigation to ${link.href}`); // Debugging
+              e.preventDefault(); // Prevent navigation if the link is already active
+            }
+          }}
+        >
                 <span ref={(el) => (headerLink.current[index] = el)}>
                   <span>{link.label}</span>
                 </span>

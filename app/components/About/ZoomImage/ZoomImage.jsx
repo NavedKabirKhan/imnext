@@ -1,6 +1,8 @@
+"use client";
 import React, { useRef, useLayoutEffect } from "react";
 import aboutStyles from "@/app/styles/About.module.css";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -10,9 +12,13 @@ function ZoomImage() {
   const gridVideo = useRef();
   const verticalMoveColumn1 = useRef();
   const verticalMoveColumn2 = useRef();
+  // const didAnimate = useRef(false);
 
-  useLayoutEffect(() => {
+  useGSAP(() => {
     // Create a GSAP matchMedia instance
+    // if (didAnimate.current) { return; }
+    // didAnimate.current = true;
+
     const mm = gsap.matchMedia();
 
     // Define animations for different breakpoints
@@ -51,7 +57,7 @@ function ZoomImage() {
 
     // Clean up all GSAP instances on component unmount
     return () => mm.revert();
-  }, []);
+  }, [aboutUsGallerySectionRef]);
 
   return (
     <>

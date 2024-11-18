@@ -115,7 +115,9 @@
 
     .shape_container .img1,
     .shape_container .img2 {
-        width: 400vw;
+        width: 400vw !important;
+        max-width: 400vw !important;
+    
     }
 
     .service_header_container {

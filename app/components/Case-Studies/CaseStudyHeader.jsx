@@ -1,6 +1,8 @@
 // /components/Header.jsx
 import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
+import { usePathname } from "next/navigation";
+
 import { useRouter } from 'next/router';
 import TransitionLink from "@/app/components/TransitionLink"
 import casestudyStyles from '@/app/styles/Case-Study.module.css';
@@ -11,14 +13,40 @@ const imagePaths = {
   casestudyNavBarBlur: '/assets/images/header/casestudy-navbar-blur.svg',
   casestudyArrowBack: '/assets/images/header/casestudy-arrowback.svg',
 };
+
+
+// Utility function to format the page name
+const formatPageName = (href) => {
+  if (!href || href === "/") {
+    return "Integra Magna";
+  }
+
+  const parts = href.replace(/^\//, "").split("/");
+  const pageName = parts[parts.length - 1];
+
+  const formattedName = pageName
+    .replace(/-/g, " ") // Replace hyphens with spaces
+    .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize first letter of each word
+
+  return formattedName;
+};
+
 function CaseStudyHeader() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isScrollingDown, setIsScrollingDown] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   // const router = useRouter();
+  const [pageName, setPageName] = useState("Integra Magna"); // Default page name
+
   const headerLink = useRef([]);
   // const pageName = router.pathname.split('/').filter(Boolean).pop() || 'Integra Magna'; // Default name if no specific page
+  const pathname = usePathname(); // Get current pathname
 
+// Update page name dynamically
+useEffect(() => {
+  const formattedName = formatPageName(pathname);
+  setPageName(formattedName);
+}, [pathname]);
 
   // Scroll detection
   useEffect(() => {
@@ -167,18 +195,18 @@ function CaseStudyHeader() {
           <span className={casestudyStyles.caseNavItem}>
             <div className={casestudyStyles.cTextMarquee}>
               <div className={`${casestudyStyles.cTextMarquee__text} anim-marqueeText`}>
-                {/* {pageName}&nbsp;&#9642;&nbsp; */}
+                {pageName}&nbsp;&#9642;&nbsp;
               </div>
               <div className={`${casestudyStyles.cTextMarquee__text} anim-marqueeText`}>
-                {/* {pageName}&nbsp;&#9642;&nbsp; */}
+                {pageName}&nbsp;&#9642;&nbsp;
 
               </div>
               <div className={`${casestudyStyles.cTextMarquee__text} anim-marqueeText`}>
-                {/* {pageName}&nbsp;&#9642;&nbsp; */}
+                {pageName}&nbsp;&#9642;&nbsp;
 
               </div>
               <div className={`${casestudyStyles.cTextMarquee__text} anim-marqueeText`}>
-                {/* {pageName}&nbsp;&#9642;&nbsp; */}
+                {pageName}&nbsp;&#9642;&nbsp;
 
               </div>
             </div>

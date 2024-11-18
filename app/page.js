@@ -15,13 +15,13 @@ import ZoomingVideo from "@/app/components/Landing/ZoomingVideo/ZoomingVideo";
 import Clients from "@/app/components/Landing/Clientele/Clients";
 import DiveintoDetail from "@/app/assets/landing/dive-into-detail.svg";
 import thumbsup from "@/app/assets/landing/thumbsup.webp";
-
+import SlideUpText from "@/app/components/SlideUpText";
 
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  
+
 
   const headingRef = useRef(null);
   useEffect(() => {
@@ -110,7 +110,7 @@ export default function Home() {
 
   return (
     <>
-     <Head>
+      <Head>
         <title>Integra Magna | Branding, Strategy, and UX UI Design Agency</title>
         {/* Add other meta tags and links as needed */}
       </Head>
@@ -182,8 +182,8 @@ export default function Home() {
         <Work />
 
         <Clients />
-        
-        <TeamImageAndService>
+
+        {/* <TeamImageAndService>
           <section
             className={`${landingStyles.site_container_padding} ${landingStyles.top_bottom_spacing} ${landingStyles.l_a_t}`}
           >
@@ -195,8 +195,8 @@ export default function Home() {
           </section>
 
           <Testimonial />
-        </TeamImageAndService>
-        
+        </TeamImageAndService> */}
+
       </div>
 
       <Footer />

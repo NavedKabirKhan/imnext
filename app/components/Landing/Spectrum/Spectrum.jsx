@@ -153,6 +153,9 @@ const Spectrum = () => {
 
       preloadImages(imageArray).then((loadedImages) => {
         images = loadedImages;
+        if (images[0]) {
+          ctx.drawImage(images[0], 0, 0, canvas.width, canvas.height);
+        }
         if (isSmallDevice || ScrollTrigger.isTouch) {
           startAutoplay();
         } else {

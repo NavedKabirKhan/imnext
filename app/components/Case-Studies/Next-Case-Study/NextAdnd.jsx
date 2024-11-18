@@ -19,7 +19,7 @@ const NextAdnd = () => {
 
   return (
     <NextCaseStudy
-      nextStudyTitle="adnd"
+      nextStudyTitle="ADND"
       nextStudyLink="/work/adnd"
       images={images}
       description="Crafting the Digital Canvas: ADND's Architectural Mastery Unveiled."

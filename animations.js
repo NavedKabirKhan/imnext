@@ -14,12 +14,13 @@ export const animatePageIn = () => {
     })
       .to(transitionElement, {
         yPercent: -100,
-        duration: 0.8,
+        duration: .8,
+        ease: "power2.in"
       })
       .to(
         transitionElement,
         {
-          duration: 0.4,
+          duration: 1,
         },
         "<"
       );
@@ -30,7 +31,7 @@ export const animatePageIn = () => {
 const formatPageName = (href) => {
   if (!href || href === "/") {
     // Handle the home page specifically
-    return `<svg viewBox="0 0 462 224" width="230px" height="111.55"  fill="none" xmlns="http://www.w3.org/2000/svg">
+    return `<svg viewBox="0 0 462 224"  fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M16.79 9.04999V93H0V9.04999H16.79Z" fill="white"></path>
           <path d="M95.19 59.64V93H78.32V60.67C78.32 50.62 73.3 45.34 64.41 45.34C59.77 45.34 54.62 48.05 50.24 53.2V93H33.37V31.56H50.24V36.2C55.26 32.21 61.06 30.02 68.02 30.02C84.38 30.02 95.2 41.61 95.2 59.65L95.19 59.64Z" fill="white"></path>
           <path d="M154.4 90.07C148.91 92.19 144.41 92.69 140.04 92.69C124.06 92.69 115.07 82.7 115.07 67.47V45.37H102.34V31.64H115.07V11.04H131.42V31.64H153.27V45.37H131.42V67.47C131.42 74.46 135.79 77.58 141.91 77.58C145.66 77.58 149.15 76.46 152.15 75.21L154.4 90.07Z" fill="white"></path>
@@ -73,7 +74,7 @@ const formatPageName = (href) => {
 export const animatePageOut = (href, router) => {
   const animationWrapper = document.getElementById("transition-element");
   const transitionPageName = document.getElementById("transitionPageName");
-  
+
 
   if (transitionPageName) {
     const formattedName = formatPageName(href);
@@ -92,6 +93,7 @@ export const animatePageOut = (href, router) => {
       .to(animationWrapper, {
         yPercent: 0,
         duration: 0.8,
+        ease: "power2.out",
         onComplete: () => {
           if (router && href) {
             router.push(href); // Ensure router is defined and href is provided

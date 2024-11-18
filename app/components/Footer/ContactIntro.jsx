@@ -5,8 +5,7 @@ import Link from 'next/link'
 
 export default function Intro() {
   return (
-    <div className='h-screen flex text-[2vw] items-center justify-center'>
-        <h2 className='max-w-[100%] text-center leading-none'>
+    <div>
           {/* <Form /> */}
           <section>
             <div className={`${contactStyles.Our_story} f-upper-section`}>
@@ -17,7 +16,6 @@ export default function Intro() {
             </div>
           </section>
 
-        </h2>
     </div>
   )
 }

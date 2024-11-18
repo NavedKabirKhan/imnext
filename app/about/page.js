@@ -35,32 +35,32 @@ function About() {
   const [startAnimations, setStartAnimations] = useState(false);
   const textRef = useRef(null);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      gsap.to(circularTextRef.current, {
-        rotate: 180,
-        scrollTrigger: {
-          trigger: circularTextRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     gsap.to(circularTextRef.current, {
+  //       rotate: 180,
+  //       scrollTrigger: {
+  //         trigger: circularTextRef.current,
+  //         start: "top bottom",
+  //         end: "bottom top",
+  //         scrub: 1,
+  //       },
+  //     });
 
-      gsap.to(storyTellingTextWheelRef.current, {
-        rotate: 180,
-        scrollTrigger: {
-          trigger: storyTellingTextWheelRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
+  //     gsap.to(storyTellingTextWheelRef.current, {
+  //       rotate: 180,
+  //       scrollTrigger: {
+  //         trigger: storyTellingTextWheelRef.current,
+  //         start: "top bottom",
+  //         end: "bottom top",
+  //         scrub: 1,
+  //       },
+  //     });
 
-      // Clean up ScrollTrigger instances on component unmount
-      return () => ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    }
-  }, []);
+  //     // Clean up ScrollTrigger instances on component unmount
+  //     return () => ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   }
+  // }, []);
 
   return (
     <>

@@ -10,7 +10,7 @@
   /* Base header styles */
   .main-header {
       width: 100%;
-      z-index: 1000;
+      z-index: 1;
     }
     
     /* Hide the elements when scrolling down (Desktop only) */
@@ -29,14 +29,14 @@
         position: fixed;
         top: 0;
         width: 100%;
-        z-index: 999;
+        /* z-index: 999; */
       }
     
       .logo-icon-container {
         position: fixed;
         top: 0;
         width: 100%;
-        z-index: 998;
+        /* z-index: 998; */
       }
     }
     
@@ -172,7 +172,7 @@
       font-size: var(--fs-20);
       font-weight: 500;
       justify-content: center;
-      z-index: 10000
+      z-index: 1000
   }
   .scroll{
       height: 100vh;
@@ -248,6 +248,12 @@
       text-decoration: underline; /* Underline the active link */
       /* font-weight: bold; */
     }
+    .navlinks .nav-item .active {
+        text-decoration: underline; /* Underline the active link */
+        pointer-events: none; /* Disable clicking on the active link */
+        cursor: default; /* Change cursor to default for inactive appearance */
+      }
+      
     
     /* For the hover effect */
     .link-container span.hovered {

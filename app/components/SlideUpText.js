@@ -102,8 +102,8 @@ function AnimatedText({ text, className = '', tag: Tag = 'span', delay = 0.3 }) 
 //     return () => ctx.revert();
 //   }, []);
 
-    useEffect(() => {
-      gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+    useGSAP(() => {
 
       if (!textRef.current) return;
 
@@ -136,7 +136,9 @@ function AnimatedText({ text, className = '', tag: Tag = 'span', delay = 0.3 }) 
         split.revert();
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       };
-    }, [text]);
+    }, {scope: textRef.current}); 
+
+
 
     return (
       <Tag ref={textRef} className={className}>

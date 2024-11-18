@@ -39,7 +39,11 @@ export default function NotFound() {
       window.addEventListener("resize", debounce(playMarquee, 500));
     }
 
-    return () => window.removeEventListener("resize", debounce(playMarquee, 500));
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", debounce);
+      if (tween) tween.kill(); // Properly clean up GSAP tween
+    };
   }, []);
 
   return (
@@ -55,35 +59,35 @@ export default function NotFound() {
           <p className={errorStyles.heroDescription}>
             Oops! Looks like we took a creative detour. This page is still under construction — kind of like our next big idea.
           </p>
-            <a href='https://integramagna.com'>
-              <div className={errorStyles.caseNavHolder}>
-                <ul className={errorStyles.caseNavBackArrow}>
-                  <span className={errorStyles.caseNavArrow}>
-                    <svg width="15" height="15" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12.0977 2.50195L2.59766 12.002L12.0977 21.502" stroke="black" strokeWidth="3" strokeLinecap="square" />
-                    </svg>
-                  </span>
-                </ul>
-                <ul className={errorStyles.caseNavLinks}>
-                  <span className={errorStyles.caseNavItem}>
-                    <div className={errorStyles.cTextMarquee}>
-                      <div className={`${errorStyles.cTextMarquee__text} anim-marqueeText`}>
-                        Back to Home&nbsp;&#9642;&nbsp;Back to Home&nbsp;&#9642;&nbsp;
-                      </div>
-                      <div className={`${errorStyles.cTextMarquee__text} anim-marqueeText`}>
-                        Back to Home&nbsp;&#9642;&nbsp;Back to Home&nbsp;&#9642;&nbsp;
-                      </div>
-                      <div className={`${errorStyles.cTextMarquee__text} anim-marqueeText`}>
-                        Back to Home&nbsp;&#9642;&nbsp;Back to Home&nbsp;&#9642;&nbsp;
-                      </div>
-                      <div className={`${errorStyles.cTextMarquee__text} anim-marqueeText`}>
-                        Back to Home&nbsp;&#9642;&nbsp;Back to Home&nbsp;&#9642;&nbsp;
-                      </div>
+          <a href='https://integramagna.com'>
+            <div className={errorStyles.caseNavHolder}>
+              <ul className={errorStyles.caseNavBackArrow}>
+                <span className={errorStyles.caseNavArrow}>
+                  <svg width="15" height="15" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.0977 2.50195L2.59766 12.002L12.0977 21.502" stroke="black" strokeWidth="3" strokeLinecap="square" />
+                  </svg>
+                </span>
+              </ul>
+              <ul className={errorStyles.caseNavLinks}>
+                <span className={errorStyles.caseNavItem}>
+                  <div className={errorStyles.cTextMarquee}>
+                    <div className={`${errorStyles.cTextMarquee__text} anim-marqueeText`}>
+                      Back to Home&nbsp;&#9642;&nbsp;Back to Home&nbsp;&#9642;&nbsp;
                     </div>
-                  </span>
-                </ul>
-              </div>
-            </a>
+                    <div className={`${errorStyles.cTextMarquee__text} anim-marqueeText`}>
+                      Back to Home&nbsp;&#9642;&nbsp;Back to Home&nbsp;&#9642;&nbsp;
+                    </div>
+                    <div className={`${errorStyles.cTextMarquee__text} anim-marqueeText`}>
+                      Back to Home&nbsp;&#9642;&nbsp;Back to Home&nbsp;&#9642;&nbsp;
+                    </div>
+                    <div className={`${errorStyles.cTextMarquee__text} anim-marqueeText`}>
+                      Back to Home&nbsp;&#9642;&nbsp;Back to Home&nbsp;&#9642;&nbsp;
+                    </div>
+                  </div>
+                </span>
+              </ul>
+            </div>
+          </a>
         </div>
       </main>
     </>
@@ -93,7 +97,7 @@ export default function NotFound() {
 // Utility function to debounce resize events
 function debounce(func, wait, immediate) {
   let timeout;
-  return function() {
+  return function () {
     const context = this, args = arguments;
     const callNow = immediate && !timeout;
     clearTimeout(timeout);

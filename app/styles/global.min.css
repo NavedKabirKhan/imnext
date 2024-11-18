@@ -2,20 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+
+#transition-overlay {
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.flex {
+    width: 100%;
+    justify-content: end;
+}
+
+
+
 /* Initial state */
 .animated-media {
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-  }
-  
-  /* Final state */
-  .animated-media.animate {
+}
+
+/* Final state */
+.animated-media.animate {
     opacity: 1;
     transform: translateY(0);
-  }
+}
 
-  
+
 /* Global CSS */
 .no-scroll {
     overflow: hidden;
@@ -56,6 +75,7 @@ html.lenis body {
 .lenis.lenis-smooth iframe {
     pointer-events: none;
 }
+
 .transitionElement {
     width: 100vw;
     height: 100vh;
@@ -69,14 +89,48 @@ html.lenis body {
     align-items: end;
     padding: 20px;
 }
-.transitionPageName{
+
+.transitionPageName {
     font-size: var(--fs-64);
     color: #fff;
-    position: absolute;
-right: 5%;
-    bottom: 50px;
+    /* position: absolute;
+    right: 5%;
+    bottom: 50px; */
+
 }
-.transitionOverlay{
+.transitionPageName svg{
+    width: clamp(6.25rem, 8.13vi + 4.63rem, 14.38rem);
+}
+
+.loader-content {
+    text-align: right;
+    color: #fff;
+    position: absolute;
+    bottom: 50px;
+    align-items: end;
+    justify-content: end;
+    flex-direction: column;
+    display: inline-flex;
+    right: 5%;
+    gap: 15px;
+}
+
+.loader {
+    width: 96px;
+    height: 4px;
+    padding: 1px;
+    margin-top: 7px;
+    background-color: #212121;
+    border-radius: 50px;
+}
+.loading-percentage{
+    height: 2px;
+    width: 0;
+    border-radius: 50px;
+    background-color: #696969;
+    transition: width .1s linear;
+}
+.transitionOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -84,6 +138,10 @@ right: 5%;
     height: 100vh;
     background-color: #000;
     z-index: 50;
+}
+
+.overflow-hidden {
+    overflow: hidden;
 }
 
 .word {
@@ -550,6 +608,7 @@ textarea::-webkit-input-placeholder {
     text-decoration: none;
     font-size: var(--fs-32)
 }
+
 .links_footer li {
     color: #fff;
     text-decoration: none;
@@ -597,7 +656,7 @@ textarea::-webkit-input-placeholder {
     background-color: transparent;
     color: #fff;
     display: flex;
-   align-items: center;
+    align-items: center;
     flex-direction: column;
     gap: 5px;
     border: none;
@@ -995,7 +1054,7 @@ textarea::-webkit-input-placeholder {
     font-weight: 500;
     gap: 15px;
     justify-content: center;
-    z-index: 1001;
+    z-index: 1000;
     left: 25%
 }
 
@@ -1088,4 +1147,24 @@ textarea::-webkit-input-placeholder {
     .case_nav_holder {
         display: none
     }
+}
+
+.footerintoMain {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerMain {
+    position: relative;
+    height: 100vh;
+}
+
+.footerContent {
+    position: fixed;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
 }
