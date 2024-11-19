@@ -125,16 +125,12 @@ export default function Home() {
               data-animate="font-weight"
               data-float="font-float"
             >
+              
+              <SlideUpText text="Spectrum"  className={`${landingStyles.spectrum} headTrans`} key="1" />
+              <SlideUpText text="of Diverse"  className={`${landingStyles.of_Diverse} headTrans`} key="2" delay={0.6} />
+              <SlideUpText text="Perspectives"  className={`${landingStyles.Perspectives} headTrans`} key="3" delay={1.2} />
 
-              <span className={`${landingStyles.spectrum} headTrans`} key="1">
-                Spectrum
-              </span>
-              <span className={`${landingStyles.of_Diverse} headTrans`} key="2">
-                of Diverse
-              </span>
-              <span className={`${landingStyles.Perspectives} headTrans`} key="3">
-                Perspectives
-              </span>
+            
             </h1>
 
             <Spectrum />

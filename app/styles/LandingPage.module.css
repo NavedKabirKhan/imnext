@@ -42,7 +42,7 @@
 
 .heading_text {
     font-family: Campton1;
-    line-height: 1;
+    line-height: 0.85;
     text-transform: uppercase;
     user-select: none;
     display: flex;
@@ -67,7 +67,6 @@
     font-size: var(--fs-64);
     align-self: center;
     padding-right: 24%;
-    line-height: 1;
     overflow: hidden;
     transition-delay: 0.5s;
     text-align: center !important;
