@@ -157,9 +157,9 @@ function Header() {
               { href: '/contact', label: 'Contact' },
             ].map((link) => (
               <li key={link.href} className="nav-item" data-links={link.label}>
-                <Link href={link.href} scroll={true} onClick={() => setIsSidebarOpen(false)}>
+                <TransitionLink href={link.href} scroll={true} onClick={() => setIsSidebarOpen(false)}>
                   <span>{link.label}</span>
-                </Link>
+                </TransitionLink>
               </li>
             ))}
           </ul>
