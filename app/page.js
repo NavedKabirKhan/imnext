@@ -183,7 +183,7 @@ export default function Home() {
 
         <Clients />
 
-        {/* <TeamImageAndService>
+        <TeamImageAndService>
           <section
             className={`${landingStyles.site_container_padding} ${landingStyles.top_bottom_spacing} ${landingStyles.l_a_t}`}
           >
@@ -195,7 +195,7 @@ export default function Home() {
           </section>
 
           <Testimonial />
-        </TeamImageAndService> */}
+        </TeamImageAndService>
 
       </div>
 

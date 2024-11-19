@@ -5,20 +5,20 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { useGSAP } from "@gsap/react";
 import servicesData from '../Services/serviceList.json';
 import teamImage from './teamImages.json';
-
+import TeamImageNew from "@/app/components/Landing/TeamImage/ScrollSequence"
 gsap.registerPlugin(ScrollTrigger);
 
 const TeamImageAndService = ({ children }) => {
-  const teamCanvasRef = useRef(null);
-  const canvasContainer = useRef(null);
+  // const teamCanvasRef = useRef(null);
+  // const canvasContainer = useRef(null);
   const LandingServiceContainer = useRef(null);
   const serviceDetailContainer = useRef(null);
   const serviceTitle = useRef(null);
-  const animationInitializedRefTeamImage = useRef(false);
-  const teamImages = { frame: 0 };
+  // const animationInitializedRefTeamImage = useRef(false);
+  // const teamImages = { frame: 0 };
   const serviceCards = useRef([]);
   const { services } = servicesData;
-  const { teamImageURLs } = teamImage;
+  // const { teamImageURLs } = teamImage;
 
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -44,60 +44,62 @@ const TeamImageAndService = ({ children }) => {
   }, []);
 
   // Cached preloaded images
-  const loadedImagesRef = useRef([]);
+  // const loadedImagesRef = useRef([]);
 
-  // Resize canvas based on window size
-  const resizeCanvas = (canvas) => {
-    const width = window.innerWidth;
-    const height = (9 * width) / 16;
-    canvas.width = width;
-    canvas.height = height;
-  };
+  // // Resize canvas based on window size
+  // const resizeCanvas = (canvas) => {
+  //   const width = window.innerWidth;
+  //   const height = (9 * width) / 16;
+  //   canvas.width = width;
+  //   canvas.height = height;
+  // };
 
   // Render images on canvas
-  const render = (context, canvas, loadedImages) => {
-    if (teamImages.frame >= loadedImages.length || !loadedImages[teamImages.frame]) return;
-    const renderWidth = canvas.height * (16 / 9);
-    const renderHeight = canvas.height;
-    const x = (canvas.width - renderWidth) / 2;
-    const y = (canvas.height - renderHeight) / 2;
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(
-      loadedImages[teamImages.frame],
-      x,
-      y,
-      renderWidth,
-      renderHeight
-    );
-  };
+  // const render = (context, canvas, loadedImages) => {
+  //   if (teamImages.frame >= loadedImages.length || !loadedImages[teamImages.frame]) return;
+  //   const renderWidth = canvas.height * (16 / 9);
+  //   const renderHeight = canvas.height;
+  //   const x = (canvas.width - renderWidth) / 2;
+  //   const y = (canvas.height - renderHeight) / 2;
+  //   context.clearRect(0, 0, canvas.width, canvas.height);
+  //   context.drawImage(
+  //     loadedImages[teamImages.frame],
+  //     x,
+  //     y,
+  //     renderWidth,
+  //     renderHeight
+  //   );
+  // };
 
   // Helper function to initialize different animations based on screen size
   const initAnimation = (loadedImages, isDesktop) => {
-    const canvas = teamCanvasRef.current;
-    const context = canvas.getContext("2d");
+    const masterTimeline = gsap.timeline();
 
-    // Kill any previous ScrollTrigger instances
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    const masterTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: canvasContainer.current,
-        start: isDesktop ? "top top" : "top bottom", // Different start based on desktop
-        end: isDesktop ? `+=${2 * window.innerHeight}` : "bottom top", // Different end based on desktop
-        pin: isDesktop, // Pin only on desktop
-        pinSpacing: isDesktop, // Pin spacing based on desktop
-        scrub: 1,
-        onRefresh: ScrollTrigger.refresh,
-      },
-    });
-    // Canvas scrolling animation
-    masterTimeline.to(teamImages, {
-      frame: loadedImages.length - 1,
-      snap: "frame",
-      ease: "none",
-      onUpdate: () => {
-        render(context, canvas, loadedImages);
-      },
-    });
+    // const canvas = teamCanvasRef.current;
+    // const context = canvas.getContext("2d");
+
+    // // Kill any previous ScrollTrigger instances
+    // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    // const masterTimeline = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: canvasContainer.current,
+    //     start: isDesktop ? "top top" : "top bottom", // Different start based on desktop
+    //     end: isDesktop ? `+=${2 * window.innerHeight}` : "bottom top", // Different end based on desktop
+    //     pin: isDesktop, // Pin only on desktop
+    //     pinSpacing: isDesktop, // Pin spacing based on desktop
+    //     scrub: 1,
+    //     onRefresh: ScrollTrigger.refresh,
+    //   },
+    // });
+    // // Canvas scrolling animation
+    // masterTimeline.to(teamImages, {
+    //   frame: loadedImages.length - 1,
+    //   snap: "frame",
+    //   ease: "none",
+    //   onUpdate: () => {
+    //     render(context, canvas, loadedImages);
+    //   },
+    // });
 
     // Service cards animation based on screen size
     if (isDesktop) {
@@ -159,38 +161,38 @@ const TeamImageAndService = ({ children }) => {
   };
 
   // Load images asynchronously and cache them
-  const loadImages = async (images) => {
-    const loadedImages = [];
-    for (let i = 0; i < images.length; i++) {
-      const img = new Image();
-      img.src = images[i];
-      await new Promise((resolve, reject) => {
-        img.onload = resolve;
-        img.onerror = reject;
-      });
-      loadedImages.push(img);
-    }
-    return loadedImages;
-  };
+  // const loadImages = async (images) => {
+  //   const loadedImages = [];
+  //   for (let i = 0; i < images.length; i++) {
+  //     const img = new Image();
+  //     img.src = images[i];
+  //     await new Promise((resolve, reject) => {
+  //       img.onload = resolve;
+  //       img.onerror = reject;
+  //     });
+  //     loadedImages.push(img);
+  //   }
+  //   return loadedImages;
+  // };
 
   // Initialize everything
   useGSAP(() => {
-    if (animationInitializedRefTeamImage.current) return;
-    animationInitializedRefTeamImage.current = true;
+    // if (animationInitializedRefTeamImage.current) return;
+    // animationInitializedRefTeamImage.current = true;
 
-    const canvas = teamCanvasRef.current;
+    // const canvas = teamCanvasRef.current;
 
     // Load images and initialize the animation
-    loadImages(teamImageURLs).then((loadedImages) => {
-      loadedImagesRef.current = loadedImages;
-      resizeCanvas(canvas);
+    // loadImages(teamImageURLs).then((loadedImages) => {
+    //   loadedImagesRef.current = loadedImages;
+    //   resizeCanvas(canvas);
 
-      // Check if the screen is desktop or mobile, then initialize the right animation
-      const isDesktop = window.innerWidth > 960;
-      initAnimation(loadedImages, isDesktop);
-    });
+    //   // Check if the screen is desktop or mobile, then initialize the right animation
+    //   const isDesktop = window.innerWidth > 960;
+    //   initAnimation(loadedImages, isDesktop);
+    // });
 
-    // Handle window resize
+  //   // Handle window resize
     const handleResize = () => {
       resizeCanvas(canvas);
       render(canvas.getContext("2d"), canvas, loadedImagesRef.current);
@@ -217,9 +219,10 @@ const TeamImageAndService = ({ children }) => {
 
   return (
     <>
-      <div className={landingStyles.canvas_container} ref={canvasContainer}>
+      {/* <div className={landingStyles.canvas_container} ref={canvasContainer}>
         <canvas ref={teamCanvasRef} id="team-image-changing"></canvas>
-      </div>
+      </div> */}
+      <TeamImageNew />
 
       {children}
 

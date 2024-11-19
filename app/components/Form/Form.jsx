@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Image from "next/legacy/image";
+import Image from 'next/image';
 
 const Form = () => {
   const [formState, setFormState] = useState({
