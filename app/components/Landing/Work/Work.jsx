@@ -7,7 +7,6 @@ import AnimateImage from "@/app/components/AnimateImage";
 import TransitionLink from "@/app/components/TransitionLink";
 
 
-
 import NeelamForesteriaThumb from "@/app/assets/work-thumbnails/neelam-landing-thumb.webp";
 import NeelamForesteriaVideo from "@/app/assets/work-thumbnails/neelam-landing-work-thumbnail.mp4";
 import BoatThumb from "@/app/assets/work-thumbnails/boat-landing-thumb.webp";
@@ -113,6 +112,7 @@ function Work() {
 
     return (
         <section className={landingStyles.work_s}>
+
             <div className={`${landingStyles.work_headings_container} ${landingStyles.site_container_padding}`}>
                 <div>
                     <SlideUpText text="Our Recent Work" className={`${landingStyles.w_o_r_w}`} Tag='h3' />
@@ -121,7 +121,6 @@ function Work() {
                     <TransitionLink href="/work" style={{ overflow: 'hidden' }}>
                         <SlideUpText text="See More Of Our Work →" className={`${landingStyles.w_s_o_m_w_desktop}`} Tag='h3' />
                     </TransitionLink>
-
                 </div>
             </div>
 
@@ -129,7 +128,6 @@ function Work() {
                 <div className={landingStyles.w_g_t_container}>
 
                     <SlideUpText text="We Work Closely With Our Clients To Create Outstanding Experiences For Their Customers." className={`${landingStyles.w_g_t_caption}`} Tag='h3' />
-
                 </div>
 
                 {/* Use map to render each work item dynamically */}

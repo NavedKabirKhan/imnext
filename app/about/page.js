@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import Head from 'next/head';
 import aboutStyles from '@/app/styles/About.module.css';
 import Footer from "@/app/components/Footer/FinalFooter";
 import SlideUpText from "@/app/components/SlideUpText";
-import ViewporTextAnim from '@/app/components/ViewporTextAnim';
+// import ViewporTextAnim from '@/app/components/ViewporTextAnim';
 import ZoomImage from '@/app/components/About/ZoomImage/ZoomImage'; // adjust folder structure if necessary
 import Marquee from '@/app/components/About/Marquee/Marquee';
 import Founders from '@/app/components/About/Founders/Founders';
@@ -13,9 +13,10 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from "next/legacy/image"; // use next/image for optimization
 
 
+
 // Images from public directory
 import founderWorking from '/public/assets/images/about/about-hero-image.png';
-import circleNoThumb from '/public/assets/images/about/circlenothhumbsvg.svg';
+// import circleNoThumb from '/public/assets/images/about/circlenothhumbsvg.svg';
 import Verticals from '/public/assets/images/about/verticals.gif';
 import Team from '/public/assets/images/about/team.gif';
 import Typography from '/public/assets/images/about/typography.gif';
@@ -28,11 +29,11 @@ import Book from '/public/assets/images/about/book.gif';
 gsap.registerPlugin(ScrollTrigger);
 
 function About() {
-  const aboutUsGalleryRef = useRef();
+  // const aboutUsGalleryRef = useRef();
   const circularTextRef = useRef();
-  const meetTheFounderRef = useRef();
+  // const meetTheFounderRef = useRef();
   const storyTellingTextWheelRef = useRef();
-  const [startAnimations, setStartAnimations] = useState(false);
+  // const [startAnimations, setStartAnimations] = useState(false);
   const textRef = useRef(null);
 
   // useEffect(() => {

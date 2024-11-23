@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react"; // Assuming this hook is available
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-import Image from "next/legacy/image"; // Ensure you're using next/image consistently
+import Image from "next/image"; // Ensure you're using next/image consistently
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -57,7 +57,7 @@
     font-size: var(--fs-164);
     align-self: flex-start;
     overflow: hidden !important;
-    transition-delay: 0.5s;
+    /* transition-delay: 0.5s; */
     /* text-align: left !important; */
     width: 100%; /* Full width to align properly */
 
@@ -68,7 +68,7 @@
     align-self: center;
     padding-right: 24%;
     overflow: hidden;
-    transition-delay: 0.5s;
+    /* transition-delay: 0.5s; */
     text-align: center !important;
     width: 100%; /* Full width to align properly */
     
@@ -80,7 +80,7 @@
     text-align: right;
     margin-inline-start: auto;
     overflow: hidden;
-    transition-delay: 0.5s;
+    /* transition-delay: 0.5s; */
     /* text-align: right !important; */
     width: 100%; /* Full width to align properly */
 

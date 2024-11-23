@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
-import Image from "next/legacy/image";
+// import Image from "next/legacy/image";
+import Image from 'next/image'
+// import Image from 'next/future/image';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Footer from '@/app/components/Footer/FinalFooter'; // Adjust path accordingly

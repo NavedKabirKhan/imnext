@@ -1,5 +1,4 @@
 "use client";
-import { useSharedRef } from '@/app/components/RefContext';
 import Head from 'next/head';
 import useGsapScroll from '@/app/components/hooks/useGsapScroll';
 import ProjectOverview from '@/app/components/Case-Studies/ProjectOverview';

@@ -1,8 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import TransitionLink from '@/app/components/TransitionLink';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
 import gsap from 'gsap';
+import BlendingLogo from '@/public/assets/images/header/blending-logo.svg';
+import LogoNameBlend from '@/public/assets/images/header/logonameblend.svg';
 
 function Header() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -10,6 +13,9 @@ function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const router = useRouter();
   const headerLink = useRef([]);
+  const pathname = usePathname();
+  // const searchParams = useSearchParams();
+  const [url, setUrl] = useState('');
 
   // Combined Scroll Detection
   useEffect(() => {
@@ -23,8 +29,16 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrollPosition]);
 
+  useEffect(() => {
+    const updatedUrl = `${pathname}`;
+    setUrl(updatedUrl);
+    // console.log("Updated URL: ", updatedUrl);
+  }, [pathname])
+
   // GSAP hover effects
   useEffect(() => {
+    // console.log("Pathname: ", usePathname());
+
     const applyHoverEffects = () => {
       if (window.innerWidth > 960) {
         headerLink.current.forEach((element) => {
@@ -72,7 +86,7 @@ function Header() {
 
             <TransitionLink href="/" data-page-name="Integra Magna" label="home">
               <div className="logo">
-                <img src="./assets/images/header/blending-logo.svg" className="imglogo" alt="Integra Magna Logo" />
+                <Image src={BlendingLogo} className="imglogo" alt="Integra Magna Logo" />
               </div>
             </TransitionLink>
           </div>
@@ -80,7 +94,7 @@ function Header() {
           <div className="contact-link">
             <div data-links="Contact">
               <TransitionLink href="/contact" label="Contact" >
-              
+
               </TransitionLink>
             </div>
           </div>
@@ -105,7 +119,7 @@ function Header() {
       >
         <div data-links="Integra Magna">
           <TransitionLink href="/" data-page-name="Integra Magna">
-            <img src="./assets/images/header/logonameblend.svg" className="imglogo" alt="Integra Magna Logo" />
+            <Image src= {LogoNameBlend} className="imglogo" alt="Integra Magna Logo" />
           </TransitionLink>
         </div>
       </div>
@@ -124,24 +138,23 @@ function Header() {
             { href: '/about', label: 'About' },
           ].map((link, index) => (
             <li key={link.href} className="nav-item" data-links={link.label}>
+
+
               <TransitionLink
-          href={link.href}
-          scroll={true}
-          className={router.pathname === link.href ? 'active' : ''}
-          onClick={(e) => {
-            if (router.pathname === link.href) {
-              console.log(`Prevented navigation to ${link.href}`); // Debugging
-              e.preventDefault(); // Prevent navigation if the link is already active
-            }
-          }}
-        >
+                href={link.href}
+                scroll={true}
+              >
+                {/* {console.log("router.pathname: ", router.pathname, "\nLink.href: ", link.href, "Url: ", url)} */}
+
                 <span ref={(el) => (headerLink.current[index] = el)}>
                   <span>{link.label}</span>
                 </span>
               </TransitionLink>
+
             </li>
           ))}
         </ul>
+
       </div>
 
       {/* Sidebar */}
@@ -156,8 +169,12 @@ function Header() {
               { href: '/about', label: 'About' },
               { href: '/contact', label: 'Contact' },
             ].map((link) => (
-              <li key={link.href} className="nav-item" data-links={link.label}>
-                <TransitionLink href={link.href} scroll={true} onClick={() => setIsSidebarOpen(false)}>
+              <li key={link.href} className="nav-item" data-links={link.label} onClick={() => {
+                setTimeout(() => {
+                  setIsSidebarOpen(false)
+                }, 1000)
+              }} >
+                <TransitionLink href={link.href} scroll={true} >
                   <span>{link.label}</span>
                 </TransitionLink>
               </li>
@@ -187,7 +204,7 @@ function Header() {
           </ul>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

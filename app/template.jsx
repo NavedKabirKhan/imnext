@@ -2,9 +2,9 @@
 
 import { useEffect, useState, useRef } from "react";
 import { animatePageIn } from "@/animations";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 
 export default function Template({ children }) {
 

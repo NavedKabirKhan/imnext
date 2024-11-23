@@ -1,8 +1,8 @@
 // pages/404.js
 
-'use client';
+"use client";
 import Head from 'next/head';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useEffect } from 'react';
 import gsap from 'gsap';
 import errorStyles from '@/app/styles/404.module.css';

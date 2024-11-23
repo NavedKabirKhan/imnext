@@ -7,6 +7,7 @@
     --fs-20: clamp(1rem, 0.25vi + 0.95rem, 1.25rem);
     --fs-16: clamp(0.75rem, 0.25vi + 0.7rem, 1rem);
   }
+  
   /* Base header styles */
   .main-header {
       width: 100%;

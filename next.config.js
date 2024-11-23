@@ -7,6 +7,7 @@ const nextConfig = {
         generator: {
           filename: 'static/media/[name].[hash][ext]', // Customizes the output path
         },
+        
       });
       return config;
     },

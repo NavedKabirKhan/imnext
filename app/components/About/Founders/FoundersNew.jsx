@@ -30,7 +30,7 @@ function Founders() {
                     scrub: 1,
                     // anticipatePin: 1,
                     // invalidateOnRefresh: true,
-                    markers: true, // Uncomment for debugging
+                    // markers: true,
                 },
             });
 

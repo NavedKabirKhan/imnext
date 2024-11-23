@@ -138,8 +138,8 @@ const Form = () => {
                   <div className="pop_form_container" id="pop_form_container">
                     <div className="footer_form_close_button_c">
                       <button type="button" className="footer_form_close_button"onClick={closePopup}>
-                       <svg role="presentation" class="t-popup__close-icon" width="23px" height="23px" viewBox="0 0 23 23" version="1.1" >
-                          <g stroke="none" stroke-width="1" fill="#101820" fill-rule="evenodd">
+                       <svg role="presentation" className="t-popup__close-icon" width="23px" height="23px" viewBox="0 0 23 23" version="1.1" >
+                          <g stroke="none" strokeWidth="1" fill="#101820" fillRule="evenodd">
                             <rect transform="translate(11.313708, 11.313708) rotate(-45.000000) translate(-11.313708, -11.313708) " x="10.3137085" y="-3.6862915" width="2" height="30"></rect>
                             <rect transform="translate(11.313708, 11.313708) rotate(-315.000000) translate(-11.313708, -11.313708) " x="10.3137085" y="-3.6862915" width="2" height="30"></rect>
                           </g>

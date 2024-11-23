@@ -1,24 +1,21 @@
 "use client";
 import Head from "next/head";
 import React, { useEffect, useRef, useState } from "react";
-import SplitType from "split-type";
-import Image from "next/legacy/image";
-import Spectrum from "@/app/components/Landing/Spectrum/Spectrum";
+import { usePathname } from 'next/navigation';
 import landingStyles from "@/app/styles/LandingPage.module.css";
 import TeamImageAndService from "@/app/components/Landing/TeamImageAndService";
 import Testimonial from "@/app/components/Testimonial/Testimonial";
 import Footer from "@/app/components/Footer/FinalFooter";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Work from "@/app/components/Landing/Work/Work";
 import ZoomingVideo from "@/app/components/Landing/ZoomingVideo/ZoomingVideo";
 import Clients from "@/app/components/Landing/Clientele/Clients";
-import DiveintoDetail from "@/app/assets/landing/dive-into-detail.svg";
-import thumbsup from "@/app/assets/landing/thumbsup.webp";
-import SlideUpText from "@/app/components/SlideUpText";
+import HeroHeading from "@/app/components/Landing/Heading/HeroHeading";
 
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Home() {
 
@@ -33,6 +30,8 @@ export default function Home() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(200);
+  const heroTexts = useRef([]);
+  const pathname = usePathname();
 
   const words = ['designers', 'engineers', 'artists'];
   const colors = ['#FA7598', '#007934', '#FFA600']; // Corresponding colors for the words
@@ -64,48 +63,6 @@ export default function Home() {
 
 
 
-  useEffect(() => {
-    // Split the text into characters only once when the component mounts
-    const splitText = new SplitType(headingRef.current, { types: "chars" });
-    const chars = splitText.chars; // Get the split characters
-
-    const maxDistance = 300;
-    const maxFontWeight = 200;
-    const minFontWeight = 500;
-
-    const handleMouseMove = (event) => {
-      const mouseX = event.pageX;
-      const mouseY = event.pageY;
-
-      chars.forEach((char) => {
-        const charRect = char.getBoundingClientRect();
-        const charCenterX = charRect.left + charRect.width / 2;
-        const charCenterY = charRect.top + charRect.height / 2;
-        const distance = Math.sqrt(
-          Math.pow(mouseX - charCenterX, 2) + Math.pow(mouseY - charCenterY, 2)
-        );
-
-        let fontWeight = minFontWeight;
-        if (distance < maxDistance) {
-          fontWeight =
-            minFontWeight +
-            (maxFontWeight - minFontWeight) *
-            ((maxDistance - distance) / maxDistance);
-        }
-
-        gsap.to(char, { fontWeight: fontWeight, duration: 0.5 });
-      });
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
-
 
 
   return (
@@ -114,8 +71,8 @@ export default function Home() {
         <title>Integra Magna | Branding, Strategy, and UX UI Design Agency</title>
         {/* Add other meta tags and links as needed */}
       </Head>
-      <div className={landingStyles.content}>
-        <section className={landingStyles.Hero_section}>
+       <div className={landingStyles.content}>
+        {/* <section className={landingStyles.Hero_section}>
           <div className={landingStyles.header_hero}>
 
             <h1
@@ -124,13 +81,16 @@ export default function Home() {
               ref={headingRef}
               data-animate="font-weight"
               data-float="font-float"
-            >
-              
-              <SlideUpText text="Spectrum"  className={`${landingStyles.spectrum} headTrans`} key="1" />
-              <SlideUpText text="of Diverse"  className={`${landingStyles.of_Diverse} headTrans`} key="2" delay={0.6} />
-              <SlideUpText text="Perspectives"  className={`${landingStyles.Perspectives} headTrans`} key="3" delay={1.2} />
+            >  */}
 
-            
+              {/* <SlideUpText text="Spectrum" className={`${landingStyles.spectrum} headTrans`} /> */}
+              {/* <SlideUpText text="Perspectives" className={`${landingStyles.Perspectives} headTrans`} delay={1.2} /> */}
+              {/* <SlideUpText text="of Diverse" delay={0.6} /> */}
+              {/* <span style={{ overflow: "hidden" }}><span className={`${landingStyles.spectrum} headTrans`} ref={(el) => (heroTexts.current[0] = el)}> Spectrum </span ></span>
+              <span style={{ overflow: "hidden" }}><span className={`${landingStyles.of_Diverse} headTrans`} ref={(el) => (heroTexts.current[1] = el)}> of Diverse</span></span>
+              <span style={{ overflow: "hidden" }}><span className={`${landingStyles.Perspectives} headTrans`} ref={(el) => (heroTexts.current[2] = el)}>Perspectives</span></span>
+
+
             </h1>
 
             <Spectrum />
@@ -150,7 +110,8 @@ export default function Home() {
           <div className={landingStyles.dive_into_detail} id="divedetailarrow">
             <Image src={DiveintoDetail} alt="Scroll Down Arrow" />
           </div>
-        </section>
+        </section > */}
+<HeroHeading />
 
         <ZoomingVideo />
 
@@ -193,7 +154,7 @@ export default function Home() {
           <Testimonial />
         </TeamImageAndService>
 
-      </div>
+      </div >
 
       <Footer />
 

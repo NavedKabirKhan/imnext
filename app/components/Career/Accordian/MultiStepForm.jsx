@@ -10,26 +10,25 @@ const MultiStepForm = ({ formName, closeFormModule, formVisible }) => {
     fullName: "",
     email: "",
     contact: "",
-    resume: null, // File object for resume
+    resume: null,
     portfolioLink: "",
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
-  // Validation functions for each step
   const validateStep = () => {
     let newErrors = {};
 
     if (step === 1 && !formData.fullName) {
       newErrors.fullName = "Please enter your full name";
     }
-    if (step === 2 && !formData.email) {
-      newErrors.email = "Please enter your email address";
-    } else if (
-      step === 2 &&
-      !/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(formData.email)
-    ) {
-      newErrors.email = "Please enter a valid email address";
+    if (step === 2) {
+      if (!formData.email) {
+        newErrors.email = "Please enter your email address";
+      } else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(formData.email)) {
+        newErrors.email = "Please enter a valid email address";
+      }
     }
     if (step === 3 && !/^\d{10}$/.test(formData.contact)) {
       newErrors.contact = "Please enter a valid 10-digit mobile number";
@@ -54,110 +53,117 @@ const MultiStepForm = ({ formName, closeFormModule, formVisible }) => {
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    if (name === "resume") {
+  
+    if (name === "resume" && files) {
+      console.log("File selected:", files[0]);
       setFormData({ ...formData, resume: files[0] });
     } else {
       setFormData({ ...formData, [name]: value });
     }
   };
-
-  // Handle file upload to S3
-  const fileuplode = () => {
-    // Configure the AWS SDK
-    AWS.config.region = 'ap-south-1'; // Ensure this matches your region
-    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-      IdentityPoolId: 'ap-south-1:1576cd6a-2ffc-46db-a911-c98c9659bb56', // Replace with your Identity Pool ID
-    });
-
-    const s3 = new AWS.S3();
-    const file = formData.resume;
-    if (!file) {
-      alert('Please select a file to upload.');
-      return null;
-    }
-
-    const name = formData.fullName.replace(/\s+/g, '_');
-    const design = formName.replace(/\s+/g, '_');
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const newFileName = `${name}_${design}_${timestamp}_${file.name.replace(/\s+/g, '_')}`;
-    const cvUrl = `https://formsubmission.s3.ap-south-1.amazonaws.com/${newFileName}`;
-
-    const params = {
-      Bucket: 'formsubmission', // Ensure this bucket exists and you have write permissions
-      Key: newFileName,
-      Body: file,
-    };
-
-    return new Promise((resolve, reject) => {
-      s3.putObject(params, (err, data) => {
-        if (err) {
-          console.error('Error uploading file:', err);
-          reject('File upload failed');
-        } else {
-          console.log('File uploaded successfully:', data);
-          resolve(cvUrl); // Return the uploaded file URL
-        }
+  
+  const fileuplode = async () => {
+    try {
+      console.log('Preparing file upload...');
+      const uploadData = new FormData();
+      uploadData.append('resume', formData.resume); // Ensure 'resume' matches the backend key
+  
+      const response = await fetch('/api/uploadResume', {
+        method: 'POST',
+        body: uploadData, // FormData automatically sets the correct Content-Type
       });
-    });
+  
+      console.log('Response received, status:', response.status);
+  
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.error || 'File upload failed');
+      }
+  
+      console.log('Upload successful:', result);
+      return result.filePath;
+    } catch (error) {
+      console.error('Error uploading file:', error);
+      throw error;
+    }
   };
+  
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
     const isValid = validateStep();
     if (isValid) {
       setIsSubmitting(true);
+      setSubmitError('');
+  
       try {
-        // First, upload the resume to S3
-        const uploadedResumeUrl = await fileuplode();
-
-        if (!uploadedResumeUrl) {
-          alert('Resume upload failed. Please try again.');
-          setIsSubmitting(false);
-          return;
+        // Step 1: Upload Resume
+        console.log('Uploading resume...');
+        const uploadData = new FormData();
+        uploadData.append('resume', formData.resume);
+  
+        const uploadResponse = await fetch('/api/uploadResume', {
+          method: 'POST',
+          body: uploadData,
+        });
+  
+        if (!uploadResponse.ok) {
+          const uploadError = await uploadResponse.json();
+          throw new Error(uploadError.error || 'Failed to upload resume');
         }
-
-        // Prepare the form data to send via email
+  
+        const uploadResult = await uploadResponse.json();
+        console.log('Resume uploaded to:', uploadResult.fileUrl);
+  
+        // Step 2: Submit Form Data
+        console.log('Submitting form...');
         const formDataToSend = {
           fullName: formData.fullName,
           email: formData.email,
           contact: formData.contact,
-          resume: uploadedResumeUrl, // Uploaded resume URL
+          resumeLink: uploadResult.fileUrl, // Use the uploaded file URL
           portfolioLink: formData.portfolioLink || 'Not provided',
+          position: formName,
         };
-
-        const response = await fetch('/api/submitCareerForm', {
+  
+        const formResponse = await fetch('/api/submitCareerForm', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(formDataToSend),
         });
-
-        if (response.ok) {
-          setStep(6); // Show the Thank You message
-        } else {
-          alert('Failed to submit the form. Please try again.');
+  
+        if (!formResponse.ok) {
+          const formError = await formResponse.json();
+          throw new Error(formError.message || 'Failed to submit form');
         }
+  
+        console.log('Form submitted successfully');
+        setStep(6); // Move to the success step
       } catch (error) {
-        console.error('Error submitting form:', error);
-        alert('An error occurred during form submission.');
+        console.error('Error during submission:', error);
+        setSubmitError(error.message || 'An error occurred. Please try again.');
       } finally {
         setIsSubmitting(false);
       }
     }
   };
+  
 
+  
   return (
     <section className={careerStyles.popupform_s_c} onClick={closeFormModule}>
       <div
         className={careerStyles.form_container}
-        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the form
+        onClick={(e) => e.stopPropagation()}
       >
         <div className={careerStyles.form_close_button_c}>
           <button
             type="button"
             className={careerStyles.form_close_button}
-            id="close-form-button"
             onClick={closeFormModule}
           >
             <Image src={crossIcon} alt="Close" />
@@ -170,8 +176,15 @@ const MultiStepForm = ({ formName, closeFormModule, formVisible }) => {
             <div className={careerStyles.form_progress_counter}>{step}/6</div>
           </div>
           <p className={careerStyles.form_faq}>
-          Please complete all sections of this application form. Ensure your contact information is accurate as this will be our primary means of communication with you.          </p>
+            Please complete all sections of this application form. Ensure your contact information is accurate as this will be our primary means of communication with you.
+          </p>
         </div>
+
+        {submitError && (
+          <div className={careerStyles.form_error}>
+            {submitError}
+          </div>
+        )}
 
         <form className={careerStyles.form_holder} onSubmit={handleSubmit}>
           {step === 1 && (
@@ -180,6 +193,7 @@ const MultiStepForm = ({ formName, closeFormModule, formVisible }) => {
                 <label htmlFor="fullName">Your full name</label>
                 <input
                   type="text"
+                  id="fullName"
                   name="fullName"
                   className={careerStyles.input_field}
                   value={formData.fullName}
@@ -193,13 +207,13 @@ const MultiStepForm = ({ formName, closeFormModule, formVisible }) => {
               </div>
 
               <div className={careerStyles.nex_prev_button_c}>
-                <input
+                <button
                   type="button"
-                  name="next"
                   className={careerStyles.action_button}
-                  value="Next"
                   onClick={handleNext}
-                />
+                >
+                  Next
+                </button>
               </div>
             </fieldset>
           )}
@@ -210,6 +224,7 @@ const MultiStepForm = ({ formName, closeFormModule, formVisible }) => {
                 <label htmlFor="email">Your email address</label>
                 <input
                   type="email"
+                  id="email"
                   name="email"
                   className={careerStyles.input_field}
                   value={formData.email}
@@ -221,20 +236,20 @@ const MultiStepForm = ({ formName, closeFormModule, formVisible }) => {
               </div>
 
               <div className={careerStyles.nex_prev_button_c}>
-                <input
+                <button
                   type="button"
-                  name="previous"
                   className={careerStyles.action_button}
-                  value="Previous"
                   onClick={handlePrevious}
-                />
-                <input
+                >
+                  Previous
+                </button>
+                <button
                   type="button"
-                  name="next"
                   className={careerStyles.action_button}
-                  value="Next"
                   onClick={handleNext}
-                />
+                >
+                  Next
+                </button>
               </div>
             </fieldset>
           )}
@@ -245,6 +260,7 @@ const MultiStepForm = ({ formName, closeFormModule, formVisible }) => {
                 <label htmlFor="contact">Your mobile number</label>
                 <input
                   type="tel"
+                  id="contact"
                   name="contact"
                   className={careerStyles.input_field}
                   value={formData.contact}
@@ -258,20 +274,20 @@ const MultiStepForm = ({ formName, closeFormModule, formVisible }) => {
               </div>
 
               <div className={careerStyles.nex_prev_button_c}>
-                <input
+                <button
                   type="button"
-                  name="previous"
                   className={careerStyles.action_button}
-                  value="Previous"
                   onClick={handlePrevious}
-                />
-                <input
+                >
+                  Previous
+                </button>
+                <button
                   type="button"
-                  name="next"
                   className={careerStyles.action_button}
-                  value="Next"
                   onClick={handleNext}
-                />
+                >
+                  Next
+                </button>
               </div>
             </fieldset>
           )}
@@ -282,10 +298,11 @@ const MultiStepForm = ({ formName, closeFormModule, formVisible }) => {
                 <label htmlFor="resume">Upload your resume</label>
                 <input
                   type="file"
-                  name="resume"
                   id="resume"
+                  name="resume"
                   className={careerStyles.input_field}
                   onChange={handleChange}
+                  accept=".pdf,.doc,.docx"
                 />
                 {errors.resume && (
                   <div className={careerStyles.form_error}>{errors.resume}</div>
@@ -293,19 +310,20 @@ const MultiStepForm = ({ formName, closeFormModule, formVisible }) => {
               </div>
 
               <div className={careerStyles.nex_prev_button_c}>
-                <input
+                <button
                   type="button"
-                  name="previous"
                   className={careerStyles.action_button}
-                  value="Previous"
-                />
-                <input
+                  onClick={handlePrevious}
+                >
+                  Previous
+                </button>
+                <button
                   type="button"
-                  name="next"
                   className={careerStyles.action_button}
-                  value="Next"
                   onClick={handleNext}
-                />
+                >
+                  Next
+                </button>
               </div>
             </fieldset>
           )}
@@ -318,6 +336,7 @@ const MultiStepForm = ({ formName, closeFormModule, formVisible }) => {
                 </label>
                 <input
                   type="url"
+                  id="portfolioLink"
                   name="portfolioLink"
                   className={careerStyles.input_field}
                   value={formData.portfolioLink}
@@ -326,16 +345,17 @@ const MultiStepForm = ({ formName, closeFormModule, formVisible }) => {
               </div>
 
               <div className={careerStyles.nex_prev_button_c}>
-                <input
+                <button
                   type="button"
-                  name="previous"
                   className={careerStyles.action_button}
-                  value="Previous"
-                />
-             <button
+                  onClick={handlePrevious}
+                >
+                  Previous
+                </button>
+                <button
                   type="submit"
                   className={careerStyles.action_button}
-                  disabled={isSubmitting} // Disable button when submitting
+                  disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>

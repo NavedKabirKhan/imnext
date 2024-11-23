@@ -69,83 +69,87 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 function AnimatedText({ text, className = '', tag: Tag = 'span', delay = 0.3 }) {
   const textRef = useRef(null);
 
-//   useGSAP(() => {
-//     gsap.registerPlugin(ScrollTrigger);
+  //   useGSAP(() => {
+  //     gsap.registerPlugin(ScrollTrigger);
 
-//     if (!textRef.current) return;
+  //     if (!textRef.current) return;
 
-//     const split = new SplitType(textRef.current, {
-//       types: 'lines,words',
-//       lineClass: 'overflow-hidden',
-//       wordClass: 'inline-block',
-//       tagName: 'span', // Ensures words are wrapped in <span> tags
-//     });
+  //     const split = new SplitType(textRef.current, {
+  //       types: 'lines,words',
+  //       lineClass: 'overflow-hidden',
+  //       wordClass: 'inline-block',
+  //       tagName: 'span', // Ensures words are wrapped in <span> tags
+  //     });
 
-//     console.log(split.words);
+  //     console.log(split.words);
 
-//     // Create a GSAP timeline with ScrollTrigger
-//     let ctx = gsap.context(() => {
-//       const tl = gsap.timeline({
-//         scrollTrigger: {
-//           trigger: textRef.current,
-//           markers: true,
-//           start: 'top bottom', // Triggers when the top of the element hits the bottom of the viewport
-//           onUpdate: () => console.log('Animation in viewport', { text }),
-//         },
-//       });
-//       tl.set(split.words, { yPercent: 100, opacity: 0 });
-//       tl.to(split.words, { yPercent: 0, opacity: 1, duration: 1.2, stagger: 0.0, ease: 'power4.out' });
-// console.log(tl);
+  //     // Create a GSAP timeline with ScrollTrigger
+  //     let ctx = gsap.context(() => {
+  //       const tl = gsap.timeline({
+  //         scrollTrigger: {
+  //           trigger: textRef.current,
+  //           markers: true,
+  //           start: 'top bottom', // Triggers when the top of the element hits the bottom of the viewport
+  //           onUpdate: () => console.log('Animation in viewport', { text }),
+  //         },
+  //       });
+  //       tl.set(split.words, { yPercent: 100, opacity: 0 });
+  //       tl.to(split.words, { yPercent: 0, opacity: 1, duration: 1.2, stagger: 0.0, ease: 'power4.out' });
+  // console.log(tl);
 
-//     });
+  //     });
 
-//     return () => ctx.revert();
-//   }, []);
+  //     return () => ctx.revert();
+  //   }, []);
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
-    useGSAP(() => {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+  useGSAP(() => {
 
-      if (!textRef.current) return;
-
-
-      const split = new SplitType(textRef.current, {
-        types: 'lines,words',
-        lineClass: 'overflow-hidden',
-        wordClass: 'inline-block',
-        tagName: 'span' // Ensures words are wrapped in <span> tags
-      });
-
-      const animation = gsap.from(split.words, {
-        scrollTrigger: {
-          trigger: textRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
-        },
-        duration: 1.2,
-        yPercent: 100,
-        opacity: 0,
-        delay: delay, // Use the passed delay prop here
-        stagger: 0.0,
-        ease: 'power4.out',
-        onComplete: () => console.log('Animation complete') // Logs when animation completes
-
-      });
-
-      return () => {
-        animation.kill();
-        split.revert();
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      };
-    }, {scope: textRef.current}); 
+    if (!textRef.current) return;
 
 
+    const split = new SplitType(textRef.current, {
+      types: 'lines,words',
+      lineClass: 'overflow-hidden',
+      wordClass: 'inline-block',
+      tagName: 'span' // Ensures words are wrapped in <span> tags
+    });
 
-    return (
-      <Tag ref={textRef} className={className}>
-        {text}
-      </Tag>
-    );
-  }
-  
-  export default AnimatedText;
-  
+    const animation = gsap.from(split.words, {
+      scrollTrigger: {
+        trigger: textRef.current,
+        start: 'top 80%',
+        toggleActions: 'play none none reverse',
+      },
+      duration: 1.2,
+      yPercent: 100,
+      opacity: 0,
+      delay: delay, // Use the passed delay prop here
+      stagger: 0.0,
+      ease: 'power4.out',
+      onComplete: () => {
+        setTimeout(() => {
+          split.revert();
+          console.log('Animation complete')
+        }, 20)
+      }, // Logs when animation completes
+
+    });
+
+    return () => {
+      animation.kill();
+      split.revert();
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, { scope: textRef.current });
+
+
+
+  return (
+    <Tag ref={textRef} className={className}>
+      {text}
+    </Tag>
+  );
+}
+
+export default AnimatedText;

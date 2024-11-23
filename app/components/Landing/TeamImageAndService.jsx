@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import servicesData from '../Services/serviceList.json';
 import teamImage from './teamImages.json';
 import TeamImageNew from "@/app/components/Landing/TeamImage/ScrollSequence"
+import Services from "@/app/components/Landing/TeamImage/ScrollSequence/Service";
 gsap.registerPlugin(ScrollTrigger);
 
 const TeamImageAndService = ({ children }) => {
@@ -226,7 +227,9 @@ const TeamImageAndService = ({ children }) => {
 
       {children}
 
-      <section
+      <Services />
+
+      {/* <section
         className={`${landingStyles.s_holder} f-upper-section`}
         ref={LandingServiceContainer}
       >
@@ -263,7 +266,8 @@ const TeamImageAndService = ({ children }) => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
+
     </>
   );
 };

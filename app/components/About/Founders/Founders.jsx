@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useRef, useEffect, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
