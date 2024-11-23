@@ -5,9 +5,9 @@ import { google } from 'googleapis';
 import { Readable } from 'stream';
 
 // Load your Google Drive API credentials
-const KEYFILEPATH = path.join(process.cwd(), '/keys/google-drive-key.json');
-const SCOPES = ['https://www.googleapis.com/auth/drive.file'];
-const FOLDER_ID = '1Kiati-0BMZtgYVZV6a0xtm8YU8LZpQiB'; // Replace with your folder ID
+const KEYFILEPATH = path.join(process.cwd(), process.env.GOOGLE_KEY_PATH);
+const SCOPES = ["https://www.googleapis.com/auth/drive.file"];
+const FOLDER_ID = process.env.GOOGLE_DRIVE_FOLDER_ID;
 
 export async function POST(req) {
   // Ensure the request Content-Type is multipart/form-data
