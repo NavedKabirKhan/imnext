@@ -266,7 +266,6 @@ const FruitSlider = ({ onButtonClick }) => {
   const [selectedWork, setSelectedWork] = useState(null);
 
 
-
   const handleButtonClick = (id) => {
     const selectedItem = fruits.find((item) => item.id === id);
     setSelectedWork(selectedItem);
@@ -276,12 +275,22 @@ const FruitSlider = ({ onButtonClick }) => {
     setSelectedWork(null); // Close the popup
   };
 
+  
   const handleMouseDown = (e) => {
     setIsDragging(true);
     setStartX(e.pageX - sliderRef.current.offsetLeft);
   };
 
+  const handleTouchStart = (e) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - sliderRef.current.offsetLeft);
+  };
+
   const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleTouchEnd = () => {
     setIsDragging(false);
   };
 
@@ -289,17 +298,31 @@ const FruitSlider = ({ onButtonClick }) => {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - sliderRef.current.offsetLeft;
+    handleDragging(x);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    const x = e.touches[0].pageX - sliderRef.current.offsetLeft;
+    handleDragging(x);
+  };
+
+  const handleDragging = (x) => {
     const distance = (x - startX) * 2;
 
     if (Math.abs(distance) > 50) {
       if (distance > 0) {
+        // Swiping right
         setCurrentIndex((prev) => (prev - 1 + fruits.length) % fruits.length);
       } else {
+        // Swiping left
         setCurrentIndex((prev) => (prev + 1) % fruits.length);
       }
-      setIsDragging(false);
+      setIsDragging(false); // Stop dragging after detecting a swipe
     }
   };
+
+
 
 
   const getTransformStyle = (index) => {
@@ -334,12 +357,18 @@ const FruitSlider = ({ onButtonClick }) => {
 
   return (
     <div
-      ref={sliderRef}
-      className={styles.sliderContainer}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseUp}
+    ref={sliderRef}
+    className={styles.sliderContainer}
+    style={{
+      cursor: isDragging ? "grabbing" : "grab",
+    }}
+    onMouseDown={handleMouseDown}
+    onTouchStart={handleTouchStart}
+    onMouseMove={handleMouseMove}
+    onTouchMove={handleTouchMove}
+    onMouseUp={handleMouseUp}
+    onTouchEnd={handleTouchEnd}
+    onMouseLeave={handleMouseUp} // To handle when the mouse leaves the slider
     >
       <div className={styles.sliderInner}>
         {fruits.map(({ id, src, title, alt }, index) => (
