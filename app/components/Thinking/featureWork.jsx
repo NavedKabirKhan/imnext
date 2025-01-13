@@ -14,8 +14,8 @@ export default function Feature() {
           </div>
 
           <div className={styles.carouselWork}>
-            <CurvedCarousel />
-            {/* <NewCarousal /> */}
+            {/* <CurvedCarousel /> */}
+            <NewCarousal />
           </div>
         </div>
       </div>

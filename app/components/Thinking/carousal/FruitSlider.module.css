@@ -1,43 +1,429 @@
 /* FruitSlider.module.css */
 
 .sliderContainer {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    padding-top: 100px;
-  }
-.sliderInner{
-    display: flex;
-    justify-content: center;
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 120px;
 }
-  
-  .fruitCard {
-    position: absolute;
-    width: 350px;
-    height: 385px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.5s ease;
+
+.sliderInner {
+  display: flex;
+  justify-content: center;
+}
+
+.sliderInner a{
+  display: flex;
+  justify-content: center;
+  user-select: none;
+}
+.fruitCard {
+  position: absolute;
+  width: 350px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  justify-content: center;
+  gap: 1rem;
+  user-select: none;
+}
+
+.fruitImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 999;
+  cursor: pointer;
+  /* position: absolute; */
+  will-change: transform;
+  border-radius: 8px;
+}
+
+
+.buttonFeatureWorks {
+  background-color: #d2d2d2;
+  border: none;
+  border-radius: 50rem;
+  color: #363636;
+  font: 1rem;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  transition: .8s scale linear(0, 0.5737 7.6%, 0.8382 11.87%, 0.9463 14.19%, 1.0292 16.54%, 1.0886 18.97%, 1.1258 21.53%, 1.137 22.97%, 1.1424 24.48%, 1.1423 26.1%, 1.1366 27.86%, 1.1165 31.01%, 1.0507 38.62%, 1.0219 42.57%, 0.9995 46.99%, 0.9872 51.63%, 0.9842 58.77%, 1.0011 81.26%, 1), .8s box-shadow linear(0, 0.5737 7.6%, 0.8382 11.87%, 0.9463 14.19%, 1.0292 16.54%, 1.0886 18.97%, 1.1258 21.53%, 1.137 22.97%, 1.1424 24.48%, 1.1423 26.1%, 1.1366 27.86%, 1.1165 31.01%, 1.0507 38.62%, 1.0219 42.57%, 0.9995 46.99%, 0.9872 51.63%, 0.9842 58.77%, 1.0011 81.26%, 1);
+  width: -moz-fit-content;
+  width: fit-content;
+
+}
+
+
+
+.popup {
+  position: fixed;
+  /* Fixed to viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* overflow-y: auto; Enable scrolling for long content */
+  animation: fadeIn 0.3s ease;
+  /* Optional fade-in animation */
+  z-index: 99999999 !important;
+  gap: 1rem;
+  background-color: #0009;
+}
+
+.hidden{
+  display: none;
+}
+/* Popup content styling */
+.popupContent {
+  background-color: #fff;
+  border-radius: 2rem;
+  display: grid;
+  grid-template-rows: 3rem 1fr;
+  max-height: 95vh; /* Prevent overflow */
+  height: 100%;
+  overflow-y: scroll; /* Enable scrolling */
+  padding: 1rem 0;
+  /* scrollbar-width: thin; */
+  scrollbar-color: transparent transparent;
+  transform-origin: center 100vh;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  overscroll-behavior: contain;
+}
+
+
+
+.workInternalHeader {
+  display: flex;
+  justify-content: end;
+  padding: 0 var(--padding);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.closeButton {
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 0px 9px 21px rgba(0, 0, 0, 0.1), 0px 38px 38px rgba(0, 0, 0, 0.09),
+    0px 85px 51px rgba(0, 0, 0, 0.05), 0px 151px 60px rgba(0, 0, 0, 0.01);
+  cursor: pointer;
+  display: flex;
+  height: 3rem;
+  justify-content: center;
+  padding: 0;
+  pointer-events: auto;
+  margin: 30px;
+  width: 3rem;
+  fill: RGBA(54, 54, 54, 1) !important;
+}
+
+.workInternalMain {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 4rem 0;
+  justify-self: center;
+  max-width: 860px;
+  width: 100%;  
+ 
+}
+
+.workHeadContent {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+
+
+}
+
+.workHeadContent .workTitle {
+  width: 100%;
+  font-size: var(--fs-64);
+}
+
+.workHeadContent h2 {
+  font-size: var(--fs-64);
+  font-weight: bold;
+}
+
+.workDescription {
+  max-width: 24em;
+  opacity: 0.6;
+  font-size: var(--fs-20);
+  transition: 0.4s opacity cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.2s;
+}
+
+.radioSection {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 50px;
+}
+.radioButton{
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: fit-content;
+  background-color: #F3F1ED;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.workCategory,
+.blogCategory {
+
+  background-color: #F3F1ED;
+  border: none;
+  border-radius: 50rem;
+  color: #363636;
+  font: 1rem / 1;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  transition: 0.8s scale linear(0,
+      0.5737 7.6%,
+      0.8382 11.87%,
+      0.9463 14.19%,
+      1.0292 16.54%,
+      1.0886 18.97%,
+      1.1258 21.53%,
+      1.137 22.97%,
+      1.1424 24.48%,
+      1.1423 26.1%,
+      1.1366 27.86%,
+      1.1165 31.01%,
+      1.0507 38.62%,
+      1.0219 42.57%,
+      0.9995 46.99%,
+      0.9872 51.63%,
+      0.9842 58.77%,
+      1.0011 81.26%,
+      1),
+    0.8s box-shadow linear(0,
+      0.5737 7.6%,
+      0.8382 11.87%,
+      0.9463 14.19%,
+      1.0292 16.54%,
+      1.0886 18.97%,
+      1.1258 21.53%,
+      1.137 22.97%,
+      1.1424 24.48%,
+      1.1423 26.1%,
+      1.1366 27.86%,
+      1.1165 31.01%,
+      1.0507 38.62%,
+      1.0219 42.57%,
+      0.9995 46.99%,
+      0.9872 51.63%,
+      0.9842 58.77%,
+      1.0011 81.26%,
+      1);
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.hidden {
+  display: none;
+  /* Completely remove from layout */
+}
+
+.visible {
+  display: block;
+  /* Add to layout */
+}
+
+.workCategory.active,
+.blogCategory.active {
+  background: #fff;
+  color: #000;
+  border-radius: 8px;
+}
+
+.moreContainer,
+.blogContainer {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.moreContainer.hidden,
+.blogContainer.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+}
+
+.moreContainer.visible,
+.blogContainer.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Popup grid for images */
+.popupGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+
+.popupGridItem img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Landscape image styling */
+.popupGridItem.landscape {
+  grid-column: span 3;
+  /* Full-width image */
+  aspect-ratio: 16 / 9;
+}
+
+/* Square image styling */
+.popupGridItem.square {
+  aspect-ratio: 1;
+  /* Square aspect ratio */
+}
+
+.popupContent h2 {
+  margin-top: 10px;
+  font-size: var(--fs-64);
+}
+
+.popupContent p {
+  margin-top: 10px;
+  color: #555;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .fruitImage {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    margin-bottom: 16px;
-    border-radius: 4px;
+
+  to {
+    opacity: 1;
   }
-  
-  .fruitText {
-    text-align: center;
-    font-size: 1.25rem;
-    font-weight: 500;
-  }
-  
+}
+
+/* Single Image Layout */
+.popupSingleImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.popupSingleImage .singleImage {
+  width: 80%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Two Images Layout */
+.popupTwoImages {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+
+.popupTwoImages .twoImage {
+  border-radius: 1rem;
+  display: flex;
+  position: relative;
+  transform-origin: bottom;
+  transition: 0.8s all linear(0,
+      0.5737 7.6%,
+      0.8382 11.87%,
+      0.9463 14.19%,
+      1.0292 16.54%,
+      1.0886 18.97%,
+      1.1258 21.53%,
+      1.137 22.97%,
+      1.1424 24.48%,
+      1.1423 26.1%,
+      1.1366 27.86%,
+      1.1165 31.01%,
+      1.0507 38.62%,
+      1.0219 42.57%,
+      0.9995 46.99%,
+      0.9872 51.63%,
+      0.9842 58.77%,
+      1.0011 81.26%,
+      1) 0.15s;
+  width: 100%;
+}
+
+/* Grid Layout for More Than Two Images */
+.popupGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+.popupGridItem.square {
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.popupGridItem.landscape {
+  grid-column: 1 / span 2;
+  overflow: hidden;
+}
+
+.popupGridItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.popupNavigation {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 98%;
+  top: 50%;
+  padding-left: 20px;
+  padding-right: 20px;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.arrowLeft,
+.arrowRight {
+  background: #363636;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  /* padding: 10px 15px; */
+  padding: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  aspect-ratio: 1/1;
+}
+
+.arrowLeft:hover,
+.arrowRight:hover {
+  background: rgba(0, 0, 0, 0.8);
+}

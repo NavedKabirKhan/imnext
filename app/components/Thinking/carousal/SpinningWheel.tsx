@@ -4,6 +4,10 @@ import { duplicatedImages } from './config';
 import styles from "@/app/styles/Thinking.module.css";
 
 export default function SpinningWheel({ onButtonClick }) {
+    const [currentIndex, setCurrentIndex] = useState(8); // Start from middle
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const sliderRef = useRef(null);
   const wheelRef = useRef<HTMLDivElement>(null);
   const [selectedWork, setSelectedWork] = useState(null);
 
@@ -17,6 +21,26 @@ export default function SpinningWheel({ onButtonClick }) {
   const handleClosePopup = () => {
     setSelectedWork(null); // Close the popup
   };
+
+  
+  const getTransformStyle = (index) => {
+    const distance = index - currentIndex;
+    const rotation = distance * 15;
+    const translateY = Math.abs(distance) * 80;
+    const translateX = distance * 600;
+    console.log(index);
+
+
+    return {
+      transform: `
+        translateY(${translateY}px)
+        translateX(${translateX}px)
+        rotate(${rotation}deg)
+      `,
+    };
+  };
+
+
   return (
     <div className={styles.sliderContainer}>
       <div className={styles.sliderSection}>
@@ -25,9 +49,9 @@ export default function SpinningWheel({ onButtonClick }) {
             <div
               key={id}
               data-wheel-card
-              className={styles.wheel__card}
+              className={styles.wheel__card} style={getTransformStyle(index)}
             >
-              <div data-card>
+       
                 <img src={src} alt={title} />
                 <button
                   className={styles.buttonFeatureWorks}
@@ -35,7 +59,7 @@ export default function SpinningWheel({ onButtonClick }) {
                 >
                   {title}
                 </button>
-              </div>
+ 
             </div>
           ))}
         </div>
