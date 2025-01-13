@@ -258,12 +258,12 @@ const fruits = [
   },
 ];
 
-const FruitSlider = ({onButtonClick}) => {
+const FruitSlider = ({ onButtonClick }) => {
   const [currentIndex, setCurrentIndex] = useState(16); // Start from middle
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const sliderRef = useRef(null);
-const [selectedWork, setSelectedWork] = useState(null);
+  const [selectedWork, setSelectedWork] = useState(null);
 
 
 
@@ -342,8 +342,7 @@ const [selectedWork, setSelectedWork] = useState(null);
       onMouseLeave={handleMouseUp}
     >
       <div className={styles.sliderInner}>
-        {fruits.map(({ id, src, title }, index) => (
-        
+        {fruits.map(({ id, src, title, alt }, index) => (
           <div
             className={styles.fruitCard}
             style={getTransformStyle(index)}
@@ -351,15 +350,17 @@ const [selectedWork, setSelectedWork] = useState(null);
           >
             <img src={src} alt={alt} className={styles.fruitImage} />
             <button
-                  className={styles.buttonFeatureWorks}
-                >
-                  {title}
-                </button>
+              className={styles.buttonFeatureWorks}
+              onClick={() => handleButtonClick(id)}
+
+            >
+              {title}
+            </button>
           </div>
         ))}
       </div>
-          {/* Popup */}
-          {selectedWork && (
+      {/* Popup */}
+      {selectedWork && (
         <div className={styles.popup} data-lenis-prevent>
           <div className={styles.popupContent}>
             <div className={styles.workInternalHeader}>
