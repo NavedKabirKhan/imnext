@@ -343,7 +343,7 @@ const [selectedWork, setSelectedWork] = useState(null);
     >
       <div className={styles.sliderInner}>
         {fruits.map(({ id, src, title }, index) => (
-          <a onClick={() => handleButtonClick(id)}>
+        
           <div
             className={styles.fruitCard}
             style={getTransformStyle(index)}
@@ -356,7 +356,6 @@ const [selectedWork, setSelectedWork] = useState(null);
                   {title}
                 </button>
           </div>
-          </a>
         ))}
       </div>
           {/* Popup */}
