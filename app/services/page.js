@@ -81,13 +81,14 @@ const Services = () => {
               text={`Let's Transform Businesses\nwith Precision`}
               className={`${servicesStyles.Service_hero_heading} headTrans`}
               Tag="h1"
+              delay={0.7}
             />
 
             <SlideUpText
               text={`We redefine corporate landscapes with our visionary design ethos. Our comprehensive services are tailored to enhance your entire business ecosystem. We&apos;re all about giving your business the edge it deserves.`}
               className={`${servicesStyles.Service_hero_subheading} headTrans`}
               Tag="span"
-              delay={0.7}
+              delay={1.3}
             />
 
           </div>

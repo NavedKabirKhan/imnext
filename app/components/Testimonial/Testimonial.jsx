@@ -6,8 +6,8 @@ const Testimonial = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     align: 'start',
     slidesToScroll: 1,
-    containScroll: 'trim',
-    loop: false,
+    containScroll: 'false',
+    loop: true,
     draggable: true,
   });
   

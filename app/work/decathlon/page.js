@@ -50,8 +50,8 @@ const Decathlon = () => {
             <div className={`${casestudyStyles.case_Study_hero_container} ${casestudyStyles.case_Study_hero_image_Decathlon}`} style={{ backgroundImage: `url(${imagePaths.hero})` }}>
                 <div className={casestudyStyles.Case_Stydy_hero_text}>
 
-                    <h2><SlideUpText text="Decathlon is the largest sporting goods retailer in the world with over 2,080 stores in 56 countries." /></h2>
-                    <h1><SlideUpText text="Decathlon" delay={1} /></h1>
+                    <h2><SlideUpText text="Decathlon is the largest sporting goods retailer in the world with over 2,080 stores in 56 countries." delay={0.9} /></h2>
+                    <h1><SlideUpText text="Decathlon" delay={1.4} /></h1>
                 </div>
                 <div className={casestudyStyles.challange_move}>
                     <img src={imagePaths.landingCircle} alt="" id="circular_text" />

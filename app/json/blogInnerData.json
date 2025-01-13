@@ -1,0 +1,107 @@
+[
+    {
+        "id": "Hilariously Bad Packaging Fails! Seriously, Who Approved These?",
+        "title": "Hilariously Bad Packaging Fails! Seriously, Who Approved These?",
+        "slug": "Hilariously-Bad-Packaging-Fails-Seriously-Who-Approved-These",
+        "author": "Integra Magna",
+        "date": "12 Dec, 2024",
+        "readTime": "3 min",
+        "content": [
+            {
+                "type": "textBox",
+                "value": [
+                    {
+                        "type": "subTextBox",
+                        "value": "I love wandering through supermarkets - plenty of creative inspiration and, occasionally, a showcase of what not to do."
+                    },
+                    {
+                        "type": "subTextBox",
+                        "value": "But then I stumble upon these packaging disasters, and I can’t help but wonder: how do they actually get a green light from their management?"
+                    },
+                    {
+                        "type": "subTextBox",
+                        "value": "Seriously, someone in a meeting said, “Yes, let’s roll this out.” And then those same people have to double down on damage control post-launch. It’s almost like a self-inflicted PR stunt."
+                    },
+                    {
+                        "type": "subTextBox",
+                        "value": "As I always say, the devil is in the details when it comes to crafting a brand identity that sticks. Ignoring the tiny, intricate elements can quickly turn a “wow” into a “whoops.”"
+                    },
+                    {
+                        "type": "subTextBox",
+                        "value": "Here are a few prime examples that scream why R&D should come before design. It’s easy to get swept up in the aesthetics - cool fonts, flashy packaging styles - but none of that secures brand loyalty or recognition if the basics are botched."
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "value": "/assets/images/thinking/blogs/hilariously-bad-packaging-fails-seriously-who-approved-these/1.webp",
+                "alt": "Integra Magna"
+            },
+            {
+                "type": "image",
+                "value": "/assets/images/thinking/blogs/hilariously-bad-packaging-fails-seriously-who-approved-these/2.webp",
+                "alt": "Integra Magna"
+            },
+            {
+                "type": "text",
+                "value": "From colours that bleed into a nightmare to fonts that make you squint like you’re decoding a secret message — every single detail counts."
+            },
+            {
+                "type": "image",
+                "value": "/assets/images/thinking/blogs/hilariously-bad-packaging-fails-seriously-who-approved-these/3.webp",
+                "alt": "Integra Magna"
+            },
+            {
+                "type": "image",
+                "value": "/assets/images/thinking/blogs/hilariously-bad-packaging-fails-seriously-who-approved-these/4.webp",
+                "alt": "Integra Magna"
+            },
+            {
+                "type": "image",
+                "value": "/assets/images/thinking/blogs/hilariously-bad-packaging-fails-seriously-who-approved-these/5.webp",
+                "alt": "Integra Magna"
+            },
+            {
+                "type": "textBox",
+                "value": [
+                    {
+                        "type": "subTextBox",
+                        "value": "The lesson?"
+                    },
+                    {
+                        "type": "subTextBox",
+                        "value": "Design isn’t just about looking pretty; it’s about making sense."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "blogInner2",
+        "title": "Blog Title 2",
+        "slug": "blog-two",
+        "author": "Integra Magna",
+        "date": "12 Dec, 2024",
+        "readTime": "3 min",
+        "content": [
+            {
+                "type": "text",
+                "value": "Detailed content for blog two."
+            }
+        ]
+    },
+    {
+        "id": "blogInner3",
+        "title": "Blog Title 3",
+        "slug": "blog-three",
+        "author": "Integra Magna",
+        "date": "12 Dec, 2024",
+        "readTime": "3 min",
+        "content": [
+            {
+                "type": "text",
+                "value": "Detailed content for blog Three."
+            }
+        ]
+    }
+]

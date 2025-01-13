@@ -85,13 +85,13 @@ function About() {
             <img src="/assets/images/about/circlenothhumbsvg.svg" alt="Integra Magna Agency and Community" className={aboutStyles.circular_text} ref={circularTextRef} />
           </div>
           <h1 className={`${aboutStyles.we} headTrans`} data-float="font-float" ref={textRef}>
-            <SlideUpText text="We" />
+            <SlideUpText text="We" delay={0.9} />
           </h1>
           <h1 className={`${aboutStyles.are} headTrans`} data-float="font-float" ref={textRef}>
-            <SlideUpText text="Are" delay={0.5} />
+            <SlideUpText text="Are" delay={1.5} />
           </h1>
           <h1 className={`${aboutStyles.gritty} headTrans`} data-float="font-float" ref={textRef}>
-            <SlideUpText text="Gritty" delay={0.10} />
+            <SlideUpText text="Gritty"  />
 
           </h1>
         </div>

@@ -64,8 +64,8 @@ const Work = () => {
         <section className={workStyles.workHeaderSection}>
           <div className={workStyles.workHeaderContainer}>
             <div className={workStyles.headerContent}>
-              <SlideUpText text="The Alchemy of Aesthetics: Designing with purpose and passion." className={`${workStyles.workHeaderHeading} headTrans`} ref={textRef} tag='h2' />
-              <SlideUpText text="&quot;Elevating and Enhancing Experiences: Here Every Design Tells a Story&quot;" className={`${workStyles.headingExplainer}`} tag='p' delay={0.5} />
+              <SlideUpText text="The Alchemy of Aesthetics: Designing with purpose and passion." className={`${workStyles.workHeaderHeading} headTrans`} ref={textRef} tag='h2' delay={0.7} />
+              <SlideUpText text="&quot;Elevating and Enhancing Experiences: Here Every Design Tells a Story&quot;" className={`${workStyles.headingExplainer}`} tag='p' delay={1.4} />
             </div>
             <div className={workStyles.workHeaderImageContainer}>
               <div className="imageWrapper">
@@ -77,7 +77,7 @@ const Work = () => {
                     sizes="(max-width: 640px) 500vw, 100vw"
                     width={1200}
                     height={800}
-                    delay={0.5}
+                    delay={1.5}
                   />
                 </AnimateImage>
               </div>
@@ -88,7 +88,7 @@ const Work = () => {
         <section className={`${workStyles.workPageGridSection} f-upper-section`}>
 
           <h2 className={`${workStyles.caseStudyHeading} headTrans`}>
-            <SlideUpText text={`Case Studies (${caseStudies.length})`} delay={1} />
+            <SlideUpText text={`Case Studies (${caseStudies.length})`} delay={2} />
 
           </h2>
 

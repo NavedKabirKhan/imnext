@@ -6,19 +6,27 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "slicemachine": "start-slicemachine"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
     "@nextui-org/accordion": "^2.0.40",
+    "@prismicio/client": "^7.13.1",
+    "@prismicio/next": "^1.7.1",
+    "@prismicio/react": "^2.9.1",
+    "@splidejs/splide": "^4.1.4",
+    "@types/flickity": "^2.2.11",
     "aws-sdk": "^2.1692.0",
     "dotenv": "^16.4.5",
-    "embla-carousel-react": "^8.3.1",
+    "embla-carousel-react": "^8.5.1",
+    "flickity": "^3.0.0",
     "framer-motion": "^11.11.11",
     "googleapis": "^144.0.0",
     "gsap": "^3.12.2",
     "jquery": "^3.7.1",
     "lenis": "^1.1.16",
+    "locomotive-scroll": "^4.1.4",
     "multer": "^1.4.5-lts.1",
     "next": "^15.0.3",
     "nodemailer": "^6.9.16",
@@ -27,6 +35,7 @@
     "split-type": "^0.3.4"
   },
   "devDependencies": {
+    "@slicemachine/adapter-next": "^0.3.61",
     "@types/multer": "^1.4.12",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.17",
@@ -36,6 +45,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
     "postcss": "^8",
+    "slice-machine-ui": "^2.11.1",
     "typescript": "^5"
   }
 }

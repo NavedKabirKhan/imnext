@@ -17,6 +17,7 @@ import contactWorkVideo from "@/app/assets/contact/contact-work-images.mp4";
 import subscribeImage from "@/app/assets/subscribe-form/subscribe-us-01.png";
 import SlideUpText from "@/app/components/SlideUpText";
 import ViewporTextAnim from "@/app/components/ViewporTextAnim";
+import Popup from "@/app/contact/Popup";
 const Contact = () => {
 
   useEffect(() => {
@@ -72,6 +73,13 @@ const Contact = () => {
       setMessage('Error occurred. Please try again later.');
     }
   };
+  
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsPopupOpen((prev) => !prev);
+  };
+
 
   return (
     <>
@@ -85,10 +93,10 @@ const Contact = () => {
         {/* Hero Section */}
         <div className={contactStyles.contact_hero_conntainer}>
           <h1 className={`${contactStyles.heading_container} initialTransition`} data-mobile-off="">
-            <SlideUpText text="Ready to do big things? Fill out our form below and tell us about your vision." />
+            <SlideUpText text="Ready to do big things? Fill out our form below and tell us about your vision." delay={0.9} />
           </h1>
         </div>
-
+   
         {/* Form Component */}
         <div className={contactStyles.form_import}>
           <Form />

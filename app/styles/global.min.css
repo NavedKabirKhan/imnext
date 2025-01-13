@@ -9,6 +9,7 @@
     transition: opacity 0.4s ease;
 }
 
+
 .hidden {
     opacity: 0;
     visibility: hidden;
@@ -113,7 +114,16 @@ html.lenis body {
     display: inline-flex;
     right: 5%;
     gap: 15px;
+    width: 50%;
 }
+@media screen and (max-width: 960px){
+    .loader-content {
+        width: 70%;
+    }
+    
+    
+}
+
 
 .loader {
     width: 96px;

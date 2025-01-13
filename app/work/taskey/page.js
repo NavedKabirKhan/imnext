@@ -57,8 +57,8 @@ const Tilx = () => {
                     <h2><SlideUpText text="A revolutionary concept where you can send tasks to your
                         contacts like a message, with added features for setting
                         dates, times, and automated reminders. Simple, fast, and
-                        efficient task management!" /></h2>
-                    <h1><SlideUpText text="TasKey" delay={1} /></h1>
+                        efficient task management!" delay={0.9} /></h2>
+                    <h1><SlideUpText text="TasKey" delay={1.4} /></h1>
                     
                 </div>
                 <div className={casestudyStyles.challange_move}>

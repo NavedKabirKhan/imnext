@@ -1,0 +1,97 @@
+.newsletterContainer {
+  max-width: 750px;
+  width: 750px;
+  height: 280px;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  display: flex;
+}
+
+.subscribeForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.heading {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.description {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8px;
+  padding-top: 20px;
+
+}
+
+.emailInput {
+  width: 20vw;
+  height: 7vh;
+  background-color: #e6e6e6;
+  border: none;
+  font-size: var(--fs-16);
+  padding: 30px;
+  border-radius: 4px;
+  font-family: ideamet;
+  font-weight: 500 !important;
+}
+
+.subscribeButton {
+  height: 7vh;
+  width: 10vw;
+  background-color: #101820;
+  color: #fff;
+  cursor: pointer;
+  font-size: var(--fs-16);
+  border-radius: 4px;
+  font-family: ideamet;
+  font-weight: 500 !important;
+}
+
+.errorMessage {
+  color: #ff0000;
+  font-size: 0.9rem;
+}
+
+.successMessage {
+  color: #28a745;
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 960px){
+  .newsletterContainer{
+    width: 90%;
+    height: 100%;
+  }
+  .inputGroup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .emailInput{
+    width: 100%;
+  }
+  .subscribeButton{
+    width: 100%;
+  }
+}

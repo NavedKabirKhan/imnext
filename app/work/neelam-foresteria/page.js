@@ -47,8 +47,8 @@ const Motivata = () => {
         <div className={casestudyStyles.Case_Stydy_hero_text}>
 
 
-          <h2><SlideUpText text="Neelam Foresteria Resort is a top luxury resort in Pachmarhi, surrounded by tall trees, offering a lush, tree-filled setting." /></h2>
-          <h1><SlideUpText text="Neelam Foresteria" delay={1} /></h1>
+          <h2><SlideUpText text="Neelam Foresteria Resort is a top luxury resort in Pachmarhi, surrounded by tall trees, offering a lush, tree-filled setting." delay={0.9} /></h2>
+          <h1><SlideUpText text="Neelam Foresteria" delay={1.4} /></h1>
         </div>
         <div className={casestudyStyles.challange_move}>
           <img src={imagePaths.landingCircle} alt="" id="case_study_circular_text" />

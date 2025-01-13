@@ -292,7 +292,7 @@
     .star {
         position: absolute;
         right: 10px;
-        top: -20px;
+        top: 5px;
         width: 15%
     }
 }
@@ -692,7 +692,7 @@
 .form_error {
     color: red;
     margin: 20px 0 0 0;
-    display: none;
+    /* display: none; */
     font-size: var(--fs-16)
 }
 

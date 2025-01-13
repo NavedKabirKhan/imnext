@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import landingStyles from "../../../styles/LandingPage.module.css";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import AnimateImage from "@/app/components/AnimateImage";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -176,15 +177,16 @@ const Spectrum = () => {
 
   return (
     <>
-      <div className={`${landingStyles.spectrum3delement} animHead`}>
+      <AnimateImage className={`${landingStyles.spectrum3delement} animHead media-container`}>
         <canvas
           id="image"
           width="500"
           height="500"
           ref={canvasRef}
           className={landingStyles.desktop_canvas}
+          delay={0.5}
         ></canvas>
-      </div>
+      </AnimateImage>
     </>
   );
 };

@@ -48,8 +48,8 @@ const Motivata = () => {
             <div className={`${casestudyStyles.case_Study_hero_container} ${casestudyStyles.case_Study_hero_image}`} style={{ backgroundImage: `url(${imagePaths.motivataHero})` }}>
                 <div className={casestudyStyles.Case_Stydy_hero_text}>
              
-                    <h2><SlideUpText text="Motivata, a festival dedicated to inspiring youth and fostering self-growth. They invited attendies to embark on a journey of exploration and inspiration." /></h2>
-                    <h1><SlideUpText text="MOTIVATA" delay={1} /></h1>
+                    <h2><SlideUpText text="Motivata, a festival dedicated to inspiring youth and fostering self-growth. They invited attendies to embark on a journey of exploration and inspiration." delay={0.9} /></h2>
+                    <h1><SlideUpText text="MOTIVATA" delay={1.4} /></h1>
                 </div>
                 <div className={casestudyStyles.challange_move}>
                     <img src={imagePaths.landingCircle} alt=""  id="case_study_circular_text" />

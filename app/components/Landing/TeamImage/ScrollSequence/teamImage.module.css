@@ -1,8 +1,9 @@
 .teamImageMain{
     position: relative;
+    margin-top: -100vh;
+
 }
 .teamImageSubMain{
-    margin-top: -100vh;
     position: relative;
     z-index: 0;
 }

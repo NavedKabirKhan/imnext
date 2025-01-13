@@ -55,10 +55,10 @@ const ADND = () => {
             <div className={`${casestudyStyles.case_Study_hero_container} ${casestudyStyles.case_Study_hero_image}`} style={{ backgroundImage: `url(${imagePaths.adndHero})` }}>
                 <div className={casestudyStyles.Case_Stydy_hero_text}>
                     <h2>
-                        <SlideUpText text="ADND achieves design excellence by harmonizing the vision of artists with the insight of thinkers, creating unique and innovative solutions for every project." />
+                        <SlideUpText text="ADND achieves design excellence by harmonizing the vision of artists with the insight of thinkers, creating unique and innovative solutions for every project." delay={0.9} />
                     </h2>
                     <h1>            
-                        <SlideUpText text="ADND" delay={1} />
+                        <SlideUpText text="ADND" delay={1.4} />
                     </h1>
                 </div>
                 <div className={casestudyStyles.challange_move}>

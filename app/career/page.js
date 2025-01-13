@@ -110,12 +110,12 @@ const Career = () => {
         <div className={careerStyles.career_heading_container}>
 
           <h1 className="headTrans" ref={textRef}>
-            <SlideUpText text="Cultivate" />
+            <SlideUpText text="Cultivate" delay={0.9} />
 
           </h1>
 
           <h2 className="headTrans" ref={textRef}>
-            <SlideUpText text="We believe in challenging perspectives." delay={0.7} />
+            <SlideUpText text="We believe in challenging perspectives." delay={1.5} />
           </h2>
 
         </div>

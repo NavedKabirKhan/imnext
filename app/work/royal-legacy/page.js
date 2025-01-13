@@ -50,8 +50,8 @@ const Tilx = () => {
 
             <div className={`${casestudyStyles.case_Study_hero_container} ${casestudyStyles.case_Study_hero_image}`} style={{ backgroundImage: `url(${imagePaths.royalHero})` }}>
                 <div className={casestudyStyles.Case_Stydy_hero_text}>
-                    <h2><SlideUpText text="Royal Legacy combines traditional heritage with a contemporary twist, enhancing the hospitality landscape. Experience a design that infuses royal history into modern dining!" /></h2>
-                    <h1><SlideUpText text="Royal Legacy" delay={1} /></h1>
+                    <h2><SlideUpText text="Royal Legacy combines traditional heritage with a contemporary twist, enhancing the hospitality landscape. Experience a design that infuses royal history into modern dining!" delay={0.9} /></h2>
+                    <h1><SlideUpText text="Royal Legacy" delay={1.4} /></h1>
                 </div>
                 <div className={casestudyStyles.challange_move}>
                     <img src={imagePaths.landingCircle} alt="" id="case_study_circular_text" />

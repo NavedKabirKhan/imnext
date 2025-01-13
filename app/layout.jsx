@@ -47,6 +47,7 @@ export default function RootLayout({ children }) {
       setPrevPathname(pathname);
     }
   }, [pathname, isInitialLoad, prevPathname]);
+  
 
   return (
     <html lang="en">

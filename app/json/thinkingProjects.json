@@ -1,0 +1,100 @@
+[
+    {
+      "id": "project1",
+      "src": "/assets/images/thinking/36DaysOfType/36DaysOfType1.webp",
+      "alt": "Project 1",
+      "title": "Naved Khan",
+      "description": "Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum",
+      "images": ["/assets/images/thinking/36DaysOfType/1.webp", "/assets/images/thinking/36DaysOfType/2.webp", "/assets/images/thinking/36DaysOfType/3.webp", "/assets/images/thinking/36DaysOfType/4.webp", "/assets/images/thinking/36DaysOfType/5.webp", "/assets/images/thinking/36DaysOfType/6.webp", "/assets/images/thinking/36DaysOfType/7.webp", "/assets/images/thinking/36DaysOfType/8.webp", "/assets/images/thinking/36DaysOfType/9.webp"]
+    },
+    {
+      "id": "project2",
+      "src": "/assets/images/thinking/fanta/1.webp",
+      "alt": "Project 2",
+      "title": "Project Two",
+      "description": "This is a detailed description of Project Two.",
+      "images": ["/assets/images/thinking/fanta/1.webp", "/assets/images/thinking/fanta/2.webp", "/assets/images/thinking/fanta/3.webp", "/assets/images/thinking/fanta/4.webp", "/assets/images/thinking/fanta/5.webp", "/assets/images/thinking/fanta/6.webp"]
+    },
+    {
+      "id": "project3",
+      "src": "/assets/images/thinking/3.jpg",
+      "alt": "Project 3",
+      "title": "Project Three",
+      "description": "This is a detailed description of Project Three.",
+      "images": ["/assets/images/thinking/3.jpg", "/assets/images/thinking/3.jpg", "/assets/images/thinking/3.jpg"]
+    },
+    {
+        "id": "project4",
+        "src": "/assets/images/thinking/4.jpg",
+        "alt": "Project 3",
+        "title": "Project Three",
+        "description": "This is a detailed description of Project Three.",
+        "images": ["/assets/images/thinking/4.jpg", "/assets/images/thinking/4.jpg", "/assets/images/thinking/4.jpg"]
+      },
+      {
+        "id": "project5",
+        "src": "/assets/images/thinking/5.jpg",
+        "alt": "Project 3",
+        "title": "Project Three",
+        "description": "This is a detailed description of Project Three.",
+        "images": ["/assets/images/thinking/5.jpg", "/assets/images/thinking/5.jpg", "/assets/images/thinking/5.jpg"]
+      },
+      {
+        "id": "project6",
+        "src": "/assets/images/thinking/6.jpg",
+        "alt": "Project 3",
+        "title": "Project Three",
+        "description": "This is a detailed description of Project Three.",
+        "images": ["/assets/images/thinking/6.jpg", "/assets/images/thinking/6.jpg", "/assets/images/thinking/6.jpg"]
+      },
+      {
+        "id": "project7",
+        "src": "/assets/images/thinking/7.jpg",
+        "alt": "Project 3",
+        "title": "Project Three",
+        "description": "This is a detailed description of Project Three.",
+        "images": ["/assets/images/thinking/7.jpg", "/assets/images/thinking/7.jpg", "/assets/images/thinking/7.jpg"]
+      },
+      {
+        "id": "project8",
+        "src": "/assets/images/thinking/8.jpg",
+        "alt": "Project 3",
+        "title": "Project Three",
+        "description": "This is a detailed description of Project Three.",
+        "images": ["/assets/images/thinking/8.jpg", "/assets/images/thinking/8.jpg", "/assets/images/thinking/8.jpg"]
+      },
+      {
+        "id": "project9",
+        "src": "/assets/images/thinking/9.jpg",
+        "alt": "Project 3",
+        "title": "Project Three",
+        "description": "This is a detailed description of Project Three.",
+        "images": ["/assets/images/thinking/9.jpg", "/assets/images/thinking/9.jpg", "/assets/images/thinking/9.jpg"]
+      },
+      {
+        "id": "project10",
+        "src": "/assets/images/thinking/10.jpg",
+        "alt": "Project 3",
+        "title": "Project Three",
+        "description": "This is a detailed description of Project Three.",
+        "images": ["/assets/images/thinking/10.jpg", "/assets/images/thinking/10.jpg", "/assets/images/thinking/10.jpg"]
+      },
+      {
+        "id": "project11",
+        "src": "/assets/images/thinking/11.jpg",
+        "alt": "Project 3",
+        "title": "Project Three",
+        "description": "This is a detailed description of Project Three.",
+        "images": ["/assets/images/thinking/11.jpg", "/assets/images/thinking/11.jpg", "/assets/images/thinking/11.jpg"]
+      },
+      {
+        "id": "project12",
+        "src": "/assets/images/thinking/11.jpg",
+        "alt": "Project 3",
+        "title": "Project Three",
+        "description": "This is a detailed description of Project Three.",
+        "images": ["/assets/images/thinking/11.jpg", "/assets/images/thinking/11.jpg", "/assets/images/thinking/11.jpg"]
+      }
+    
+  ]
+  

@@ -1,0 +1,64 @@
+[
+    {
+      "id": "Hilariously Bad Packaging Fails! Seriously, Who Approved These?",
+      "title": "Hilariously Bad Packaging Fails! Seriously, Who Approved These?",
+      "thumbnail": "/assets/images/thinking/1.jpg",
+      "date": "31 Aug, 2024",
+      "readTime": "2",
+      "description": "I love wandering through supermarkets - plenty of creative inspiration and, oc...",
+      "backgroundColor": "#186786",
+      "slug": "Hilariously-Bad-Packaging-Fails-Seriously-Who-Approved-These"
+
+    },
+    {
+      "id": "blog2",
+      "title": "Blog Title 2",
+      "thumbnail": "/assets/images/thinking/2.jpg",
+      "date": "12 Dec, 2024",
+      "readTime": "3",
+      "description": "Lorem ipsum dolor sit amet consectetur. Nulla sit enim sapien pharetra ultricies.",
+      "backgroundColor": "#0c0a0b",
+      "slug": "blog-two"
+    },
+    {
+      "id": "blog3",
+      "title": "Blog Title 3",
+      "thumbnail": "/assets/images/thinking/3.jpg",
+      "date": "12 Dec, 2024",
+      "readTime": "3",
+      "description": "Lorem ipsum dolor sit amet consectetur. Nulla sit enim sapien pharetra ultricies.",
+      "backgroundColor": "#5e5200",
+      "slug": "blog-three"
+    },
+    {
+        "id": "blog4",
+        "title": "Blog Title 4",
+        "thumbnail": "/assets/images/thinking/4.jpg",
+        "date": "12 Dec, 2024",
+        "readTime": "3",
+        "description": "Lorem ipsum dolor sit amet consectetur. Nulla sit enim sapien pharetra ultricies.",
+        "backgroundColor": "#5e5200",
+      "slug": "blog-four"
+      },
+      {
+        "id": "blog5",
+        "title": "Blog Title 3",
+        "thumbnail": "/assets/images/thinking/5.jpg",
+        "date": "12 Dec, 2024",
+        "readTime": "3",
+        "description": "Lorem ipsum dolor sit amet consectetur. Nulla sit enim sapien pharetra ultricies.",
+        "backgroundColor": "#5e5200",
+      "slug": "blog-five"
+      },
+      {
+        "id": "blog6",
+        "title": "Blog Title 3",
+        "thumbnail": "/assets/images/thinking/6.jpg",
+        "date": "12 Dec, 2024",
+        "readTime": "3",
+        "description": "Lorem ipsum dolor sit amet consectetur. Nulla sit enim sapien pharetra ultricies.",
+        "backgroundColor": "#5e5200",
+      "slug": "blog-six"
+      }
+  ]
+  

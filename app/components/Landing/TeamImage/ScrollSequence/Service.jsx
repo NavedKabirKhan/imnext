@@ -14,13 +14,22 @@ const Service = () => {
     const serviceCards = useRef([]);
 
     const { services } = servicesData;
+    const [isDesktop, setIsDesktop] = useState(true);
+
+      useEffect(() => {
+        const handleResize = () => {
+          setIsDesktop(window.innerWidth > 960);
+        };
+        handleResize();
     
-    const [isDesktop, setIsDesktop] = useState(false); // Default to false
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            setIsDesktop(window.innerWidth > 960);
-        }
-    }, []);
+        window.addEventListener('resize', handleResize);
+    
+        // Cleanup listener on unmount
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
+
     // Helper function to initialize animations
     const initAnimation = (isDesktop) => {
         const masterTimeline = gsap.timeline();
@@ -42,7 +51,7 @@ const Service = () => {
                 gsap.set(service, { clearProps: "all" });
             });
         } else {
-            console.log("phone");
+            // console.log("phone");
 
             masterTimeline.to(serviceDetailContainer.current, {
                 scrollTrigger: {
@@ -88,11 +97,31 @@ const Service = () => {
         }
     };
 
+
+
+    useEffect(() => {
+        // Reinitialize animations whenever `isDesktop` changes
+        if (typeof window !== "undefined") {
+
+        initAnimation(isDesktop);
+
+        // Refresh ScrollTrigger
+        ScrollTrigger.refresh();
+
+        return () => {
+            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        };
+    }
+    }, [isDesktop]);
+
     useEffect(() => {
         const handleResize = () => {
             if (typeof window !== "undefined") {
-                setIsDesktop(window.innerWidth > 960);
+
+            const isDesktopSize = window.innerWidth > 960;
+            setIsDesktop(isDesktopSize);
             }
+            
         };
 
         // Set initial value
@@ -106,18 +135,6 @@ const Service = () => {
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
     }, []);
-
- 
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            initAnimation(isDesktop);
-            ScrollTrigger.refresh();
-        }
-
-        return () => {
-            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-        };
-    }, [isDesktop]);
 
     return (
         <section

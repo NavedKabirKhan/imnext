@@ -63,10 +63,10 @@ const BOAT = () => {
         <div className={casestudyStyles.Case_Stydy_hero_text}>
           <h2>
             <SlideUpText text="Boat offers an incredible range of wireless earphones, earbuds, headphones, smartwatches, and home audio.
-            Whether for workouts or adventures, Boat will keep you sailing!" />
+            Whether for workouts or adventures, Boat will keep you sailing!" delay={0.9} />
           </h2>
           <h1>
-            <SlideUpText text="boAt" delay={1} />
+            <SlideUpText text="boAt" delay={1.4} />
           </h1>
         </div>
         <div className={casestudyStyles.challange_move}>

@@ -1,0 +1,107 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap"); */
+
+.sliderContainer {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  /* background-color: #1d1e22; */
+}
+
+.sliderSection {
+  bottom: 50%;
+  position: absolute;
+  width: 100%;
+}
+
+.wheel {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 270vw;
+  height: 270vw;
+  /* max-width: 2000px; */
+  /* max-height: 2000px; */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.wheel__card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.wheel__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 999;
+  cursor: pointer;
+  /* position: absolute; */
+  will-change: transform;
+  border-radius: 8px;
+}
+
+@media screen and (max-width:960px) {
+  .wheel{
+    width: 500vw;
+  height: 500vw;
+  }
+  .wheel__card{
+    width: 300px;
+  }
+  .sliderContainer {
+    height: 50vh;
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* height: 60vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.header img {
+  width: 40vw;
+  height: 40vw;
+  max-height: 350px;
+  max-width: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.buttonFeatureWorks {
+  background-color: #d2d2d2;
+  border: none;
+  border-radius: 50rem;
+  color: #363636;
+  font: 1rem;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  transition: .8s scale linear(0, 0.5737 7.6%, 0.8382 11.87%, 0.9463 14.19%, 1.0292 16.54%, 1.0886 18.97%, 1.1258 21.53%, 1.137 22.97%, 1.1424 24.48%, 1.1423 26.1%, 1.1366 27.86%, 1.1165 31.01%, 1.0507 38.62%, 1.0219 42.57%, 0.9995 46.99%, 0.9872 51.63%, 0.9842 58.77%, 1.0011 81.26%, 1), .8s box-shadow linear(0, 0.5737 7.6%, 0.8382 11.87%, 0.9463 14.19%, 1.0292 16.54%, 1.0886 18.97%, 1.1258 21.53%, 1.137 22.97%, 1.1424 24.48%, 1.1423 26.1%, 1.1366 27.86%, 1.1165 31.01%, 1.0507 38.62%, 1.0219 42.57%, 0.9995 46.99%, 0.9872 51.63%, 0.9842 58.77%, 1.0011 81.26%, 1);
+  width: -moz-fit-content;
+  width: fit-content;
+
+}

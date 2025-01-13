@@ -49,8 +49,13 @@
     flex-direction: column;
     justify-content: space-around;
 }
-.heading_text span{
+.heading_text .word{
     overflow: hidden;
+    line-height: 0;
+}
+
+.heading_text span{
+    overflow: hidden !important;
 }
 
 .spectrum {
@@ -60,6 +65,7 @@
     /* transition-delay: 0.5s; */
     /* text-align: left !important; */
     width: 100%; /* Full width to align properly */
+    line-height: 0 ;
 
 }
 
@@ -71,6 +77,7 @@
     /* transition-delay: 0.5s; */
     text-align: center !important;
     width: 100%; /* Full width to align properly */
+    line-height: 0;
     
 }
 
@@ -83,7 +90,7 @@
     /* transition-delay: 0.5s; */
     /* text-align: right !important; */
     width: 100%; /* Full width to align properly */
-
+line-height: 0;
 }
 
 .landing_circle {
@@ -97,6 +104,8 @@
     animation: popOut .5s ease-out forwards;
     animation-delay: 1.7s;
 }
+
+
 
 @keyframes popOut {
     to {
@@ -184,7 +193,7 @@
 
     .heading_text {
         font-family: ideamet;
-        line-height: 1;
+        line-height: 0;
         text-transform: uppercase;
         user-select: none;
         display: flex;
@@ -945,7 +954,7 @@
 
 /* Embla Carousel Styles */
 .embla {
-    overflow: hidden;
+    /* overflow: hidden; */
     width: 100%;
     padding-top: 50px;
     padding-bottom: 120px;
@@ -953,13 +962,17 @@
 
 .embla__container {
     display: flex;
-    gap: 5%;
 }
 
 .embla__slide {
     position: relative;
     flex: 0 0 45%;
+    margin-right: 5%;
     box-sizing: border-box;
+}
+
+.embla__slide:last-child{
+    margin-right: 5%;
 }
 
 @media screen and (max-width: 640px) {

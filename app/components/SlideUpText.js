@@ -121,7 +121,7 @@ function AnimatedText({ text, className = '', tag: Tag = 'span', delay = 0.3 }) 
         start: 'top 80%',
         toggleActions: 'play none none reverse',
       },
-      duration: 1.2,
+      duration: 1.9,
       yPercent: 100,
       opacity: 0,
       delay: delay, // Use the passed delay prop here
@@ -130,7 +130,7 @@ function AnimatedText({ text, className = '', tag: Tag = 'span', delay = 0.3 }) 
       onComplete: () => {
         setTimeout(() => {
           split.revert();
-          console.log('Animation complete')
+          // console.log('Animation complete')
         }, 20)
       }, // Logs when animation completes
 

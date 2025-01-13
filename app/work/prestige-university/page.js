@@ -48,8 +48,8 @@ const PrestigeUniversity = () => {
 
             <div className={`${casestudyStyles.case_Study_hero_container} ${casestudyStyles.case_Study_hero_image}`} style={{ backgroundImage: `url(${imagePaths.prestigeHero})` }}>
                 <div className={casestudyStyles.Case_Stydy_hero_text}>
-                <h2><SlideUpText text="Prestige University embarked on a transformative branding project to position itself as the crucible for future leaders." /></h2>
-                <h1><SlideUpText text="Prestige University" delay={1} /></h1>
+                <h2><SlideUpText text="Prestige University embarked on a transformative branding project to position itself as the crucible for future leaders." delay={0.9} /></h2>
+                <h1><SlideUpText text="Prestige University" delay={1.4} /></h1>
                 </div>
                 <div className={casestudyStyles.challange_move}>
                     <img src={imagePaths.landingCircle} alt=""  id="case_study_circular_text" />

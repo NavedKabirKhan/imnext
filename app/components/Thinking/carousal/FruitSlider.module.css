@@ -1,0 +1,43 @@
+/* FruitSlider.module.css */
+
+.sliderContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+  }
+.sliderInner{
+    display: flex;
+    justify-content: center;
+}
+  
+  .fruitCard {
+    position: absolute;
+    width: 350px;
+    height: 385px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease;
+  }
+  
+  .fruitImage {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border-radius: 4px;
+  }
+  
+  .fruitText {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  
