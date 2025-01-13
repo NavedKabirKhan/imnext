@@ -342,17 +342,18 @@ const [selectedWork, setSelectedWork] = useState(null);
       onMouseLeave={handleMouseUp}
     >
       <div className={styles.sliderInner}>
-        {fruits.map((fruit, index) => (
-          <a onClick={() => handleButtonClick(fruit.id)}>
+        {fruits.map(({ id, src, title }, index) => (
+          <a onClick={() => handleButtonClick(id)}>
           <div
             className={styles.fruitCard}
             style={getTransformStyle(index)}
+            key={id}
           >
-            <img src={fruit.src} alt={fruit.alt} className={styles.fruitImage} />
+            <img src={src} alt={alt} className={styles.fruitImage} />
             <button
                   className={styles.buttonFeatureWorks}
                 >
-                  {fruit.title}
+                  {title}
                 </button>
           </div>
           </a>
